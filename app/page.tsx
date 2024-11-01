@@ -13,9 +13,8 @@ export default function Home() {
 
 
   return (
-    <main className="bg-black flex h-screen justify-center items-center flex-col">
-      <div className="h-screen aspect-[3/4] bg-city relative font-bold text-5xl">
-        <Image className=" absolute right-0" src={"/logo.png"} alt="logo" width={200} height={100} />
+    <>
+        <Image className=" absolute right-0 top-0" src={"/logo.png"} alt="logo" width={200} height={100} />
         <div className=" absolute top-28 right-4 flex flex-row text-4xl space-x-3">
           <p>10:05</p>
           <p>am</p>
@@ -34,20 +33,17 @@ export default function Home() {
           </button>
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-purple-900 flex flex-col justify-center items-center">
-          <div className="grid grid-cols-2 gap-4 w-[80%]">
-            <button className="bus-button pt-10 pb-10 col-span-2">
-              Purchase Pass
-            </button>
-            <button className="bus-button">
-              Bus Routes
-            </button>
-            <button className="bus-button">
-              Where To?
-            </button>
-          </div>
+        <div className="grid grid-cols-2 gap-4 w-[80%]">
+          <button className="bus-button pt-10 pb-10 col-span-2">
+            Purchase Pass
+          </button>
+          <button className="bus-button">
+            Bus Routes
+          </button>
+          <button className="bus-button">
+            Where To?
+          </button>
         </div>
-      </div>
-    </main>
+    </>
   );
 }
