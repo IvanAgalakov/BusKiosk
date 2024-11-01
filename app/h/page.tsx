@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import TimeDisplay from "../components/Time";
 
 export default function Handicap() {
   const router = useRouter();
@@ -17,10 +18,8 @@ export default function Handicap() {
         width={200}
         height={100}
       />
-      <div className="absolute top-28 right-4 flex flex-row text-4xl space-x-3">
-        <p>10:05</p>
-        <p>am</p>
-      </div>
+      <TimeDisplay/>
+      
       <div className="absolute bottom-4 right-4 flex flex-row text-4xl space-x-3">
         <Image
           onClick={navToHome}
