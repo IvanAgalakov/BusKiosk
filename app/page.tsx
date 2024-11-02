@@ -9,7 +9,7 @@ export default function Home() {
   const router = useRouter();
 
   const navToHandHome = () => {
-    router.push("h");
+    router.push("/h");
   }
 
   const navToLanguage = () => {
