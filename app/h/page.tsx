@@ -18,6 +18,7 @@ export default function Handicap() {
         width={200}
         height={100}
       />
+      
       <TimeDisplay/>
       
       <div className="absolute bottom-4 right-4 flex flex-row text-4xl space-x-3">
