@@ -32,6 +32,12 @@ export const translateMap: Map<string, Map<string,string>> = new Map<string,Map<
                 ["en", "Select Your Language:"],
             ])
         ],
+
+        [
+            "Single", new Map<string,string>([
+                ["en", "Single"],
+            ])
+        ],
         
     ]
 );
