@@ -14,7 +14,7 @@ export default function Home() {
   const { language } = useGlobalState();
 
   const navToHandHome = () => {
-    router.push("h");
+    router.push("/h");
   }
 
   const navToLanguage = () => {
