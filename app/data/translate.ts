@@ -32,7 +32,37 @@ export const translateMap: Map<string, Map<string,string>> = new Map<string,Map<
                 ["en", "Select Your Language:"],
             ])
         ],
+
+        [
+            "Daily", new Map<string,string>([
+                ["en", "Daily"],
+                ["fr", "Tous les jours"],
+            ])
+        ],
         
+        [
+            "Single", new Map<string,string>([
+                ["en", "Single"],
+            ])
+        ],
+
+        [
+            "Monthly", new Map<string,string>([
+                ["en", "Monthly"],
+            ])
+        ],
+
+        [
+            "Weekly", new Map<string,string>([
+                ["en", "Weekly"],
+            ])
+        ],
+
+        [
+            "Select pass", new Map<string,string>([
+                ["en", "Select pass"],
+            ])
+        ],
     ]
 );
 

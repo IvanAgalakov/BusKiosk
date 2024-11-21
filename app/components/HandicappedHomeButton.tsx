@@ -7,7 +7,7 @@ interface HCHomeButtonProps {
     return (
       <button 
         onClick={onClick}
-        className="bus-button bottom-2 left-2 absolute p-2"
+        className="bus-button bottom-2 right-2 absolute p-2"
         {...(href && { as: 'a', href: href })}
       >
         <svg 

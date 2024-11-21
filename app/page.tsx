@@ -21,9 +21,17 @@ export default function Home() {
     router.push("pages/languages");
   }
 
+  const navToPassSelection = () => {
+    router.push("pages/PassSelectScreen")
+  }
+
   return (
     <>
-        <Image className=" absolute right-0 top-0" src={"/logo.png"} alt="logo" width={200} height={100} />
+        <Image className=" absolute right-0 top-0" 
+        src={"/logo.png"} 
+        alt="logo" 
+        width={200} 
+        height={100} />
 
         <TimeDisplay/>
 
@@ -41,8 +49,9 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-2 gap-4 w-[80%]">
-          <button className="bus-button pt-10 pb-10 col-span-2">
+          <button onClick={navToPassSelection} className="bus-button pt-10 pb-10 col-span-2">
             { translate("Purchase Pass", language) }
+            
           </button>
           <button className="bus-button">
             { translate("Bus Routes", language)}
