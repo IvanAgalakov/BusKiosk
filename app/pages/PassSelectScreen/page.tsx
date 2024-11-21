@@ -10,14 +10,15 @@ import { translate } from "@/app/data/translate";
 
 export default function Home() {
     const router = useRouter();
-    const {language, setLanguage} = useGlobalState();
+    const {language, setSelectedPass} = useGlobalState();
 
     const navToHome = () => {
         router.push("/")
     }
-    const changeLanguage = (lang: Language) => {
-        setLanguage(lang.code);
-      };
+    const onSelect = (value: string) => {
+        setSelectedPass(value)
+        router.push("/pages/buytickets")
+    };
     return (
         <>
             <Image
@@ -38,16 +39,16 @@ export default function Home() {
  
 
             <div className="grid grid-cols-1 gap-20 w-[50%] absolute bottom-12">
-                <button className = "bus-button">
+                <button className = "bus-button" onClick={() => onSelect("Single")}>
                     { translate("Single", language)}
                 </button>
-                <button className="bus-button">
+                <button className="bus-button" onClick={() => onSelect("Daily")}>
                     { translate("Daily", language)}
                 </button>
-                <button className = "bus-button">
+                <button className = "bus-button" onClick={() => onSelect("Weekly")}>
                     { translate("Weekly", language)}
                 </button>
-                <button className = "bus-button">
+                <button className = "bus-button" onClick={() => onSelect("Monthly")}>
                     { translate("Monthly", language)}
                 </button>
             </div>

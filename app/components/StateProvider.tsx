@@ -5,21 +5,23 @@ import { createContext, ReactNode, useContext, useState } from "react";
 type GlobalStateType = {
   language: string;
   setLanguage: (lang: string) => void;
-  adultAmount: number;
-  setAdultAmount: (num: number) => void;
-  youthAmount: number;
-  setYouthAmount: (num: number) => void;
+
+  total: number;
+  setTotal: (num: number) => void;
+
+  selectedPass: string;
+  setSelectedPass: (pass: string) => void;
 };
 
 const GlobalStateContext = createContext<GlobalStateType | undefined>(undefined);
 
 export const GlobalStateProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState<string>("en");
-  const [adultAmount, setAdultAmount] = useState<number>(0);
-  const [youthAmount, setYouthAmount] = useState<number>(0);
+  const [selectedPass, setSelectedPass] = useState<string>("None");
+  const [total, setTotal] = useState<number>(0);
 
   return (
-    <GlobalStateContext.Provider value={{ language, setLanguage, adultAmount, setAdultAmount, youthAmount, setYouthAmount}}>
+    <GlobalStateContext.Provider value={{ language, setLanguage, selectedPass, setSelectedPass, total, setTotal}}>
       {children}
     </GlobalStateContext.Provider>
   );
