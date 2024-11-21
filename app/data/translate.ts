@@ -32,6 +32,105 @@ export const translateMap: Map<string, Map<string,string>> = new Map<string,Map<
                 ["en", "Select Your Language:"],
             ])
         ],
+
+        [
+            "Single", new Map<string,string>([
+                ["en", "Single"],
+            ])
+        ],
+        [
+          "Daily", new Map<string,string>([
+              ["en", "Daily"],
+          ])
+      ],
+        [
+          "Weekly", new Map<string,string>([
+              ["en", "Weekly"],
+          ])
+      ],
+      [
+          "Monthly", new Map<string,string>([
+            ["en", "Monthly"],
+        ])
+    ],
+        [
+            "Ticket Regulations", new Map<string,string>([
+                ["en", "Ticket Regulations"],
+            ])
+        ],
+        [
+            "Nonrefundable", new Map<string, string>([
+              ["en", "Non-refundable"],
+              ["fr", "Non remboursable"],
+            ])
+          ],
+            [
+              "A single ticket is valid for 1 (one) use.", new Map<string, string>([
+                ["en", "A single ticket is valid for 1 (one) use."],
+              ])
+            ],
+            [
+              "A daily ticket is valid for 1 (one) day.", new Map<string, string>([
+                ["en", "A daily ticket is valid for 1 (one) day."],
+              ])
+            ],
+            [
+              "A weekly ticket is valid for 7 (seven) days.", new Map<string, string>([
+                ["en", "A weekly ticket is valid for 7 (seven) days."],
+              ])
+            ],
+            [
+              "A monthly ticket is valid for 1 (one) Month.", new Map<string, string>([
+                ["en", "A monthly ticket is valid for 1 (one) Month."],
+              ])
+            ],
+            [
+              "Ticket expires 365 days from purchase date.", new Map<string, string>([
+                ["en", "Ticket expires 365 days from purchase date."],
+              ])
+            ],
+            [
+              "Ticket expires 1 day from purchase date.", new Map<string, string>([
+                ["en", "Ticket expires 1 day from purchase date."],
+              ])
+            ],
+            [
+              "Ticket expires 7 days from purchase date.", new Map<string, string>([
+                ["en", "Ticket expires 7 days from purchase date."],
+              ])
+            ],
+            [
+              "Ticket expires 30 days from purchase date.", new Map<string, string>([
+                ["en", "Ticket expires 30 days from purchase date."],
+              ])
+            ],
+          
+          [
+            "No refunds or exchanges.", new Map<string, string>([
+              ["en", "No refunds or exchanges."],
+              ["fr", "Aucun remboursement ni échange."],
+            ])
+          ],
+          [
+            "Youth age 13 - 17 yrs old", new Map<string, string>([
+              ["en", "Youth age 13 - 17 years old may use a youth ticket. Children age 12 years and under ride for free"],
+            ])
+          ],
+      
+          [
+            "OK", new Map<string, string>([
+              ["en", "OK"],
+              ["fr", "D'accord"],
+            ])
+          ],
+      
+          [
+            "Return to selection", new Map<string, string>([
+              ["en", "Return to selection"],
+              ["fr", "Retour à la sélection"],
+            ])
+          ],
+     
         
     ]
 );
