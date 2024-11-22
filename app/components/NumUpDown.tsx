@@ -1,17 +1,20 @@
+import { translate } from "../data/translate";
+
 interface NumUpDownProps {
     onClickUp: () => void;
     onClickDown: () => void;
     title: string;
     subtitle?: string;
     value: number;
+    language: string;
   }
   
-  export default function NumUpDown({ onClickUp, onClickDown, title, value, subtitle }: NumUpDownProps) {
+  export default function NumUpDown({ onClickUp, onClickDown, title, value, subtitle, language }: NumUpDownProps) {
     return (
         <div className=" mt-10 ml-10 flex flex-row items-center">
         <div className="flex-col">
             <div>
-            {title}
+            {translate(title, language)}:
             </div>
             <div>
             {subtitle}

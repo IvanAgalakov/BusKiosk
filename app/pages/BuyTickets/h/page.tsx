@@ -14,9 +14,7 @@ import { getPrice, prices } from "@/app/data/pricing";
 
 export default function Home() {
   const router = useRouter();
-  const { language, selectedPass, setTotal, total } = useGlobalState();
-  const [adultAmount, setAdultAmount] = useState<number>(0);
-  const [youthAmount, setYouthAmount] = useState<number>(0);
+  const { language, selectedPass, setTotal, total, adultAmount, youthAmount, setAdultAmount, setYouthAmount } = useGlobalState();
 
   let adultInc: number | undefined = 0;
   let youthInc: number | undefined = 0;
@@ -26,14 +24,22 @@ export default function Home() {
     youthInc = getPrice(selectedPass+"Youth");
   });
 
+  const onPurchase = () => {
+    router.push("/pages/ConfirmScreen")
+  }
+
   const navBack = () => {
-    router.back();
+    router.push("/pages/PassSelectScreen/h");
     setTotal(0)
+    setAdultAmount(0)
+    setYouthAmount(0)
   };
 
   const navToHome = () => {
-    router.replace("/");
+    router.replace("/h");
     setTotal(0)
+    setAdultAmount(0)
+    setYouthAmount(0)
   };
 
   const adultUp = () => {
@@ -78,26 +84,30 @@ export default function Home() {
         height={100}
       />
       <TimeDisplay />
-      <HomeButton onClick={navToHome} />
-      <div className=" left-20 absolute top-0">
-        <BackButton onClick={navToHome} />
-      </div>
 
       <Header text={selectedPass} language={language}/>
 
-      <div className=" top-52 absolute">
+      <div className=" top-[25rem] absolute">
         <div className="text-3xl bg-slate-400 bg-opacity-50 p-3">
-          Children age 0-13 do not have to pay.
-        </div>
-        <div className=" flex flex-col text-4xl justify-center items-center">
-          <NumUpDown subtitle="(18+)" title="Adult:" onClickDown={adultDown} onClickUp={adultUp} value={adultAmount}/>
-          <NumUpDown subtitle="(13- 17)" title="Youth:" onClickDown={youthDown} onClickUp={youthUp} value={youthAmount}/>
+          {translate("Children age 0-13 do not have to pay.",language)}
         </div>
       </div>
 
       <div className=" bottom-5 absolute flex flex-col justify-center items-center">
-        <div className=" mb-3">Total: {total}$</div>
-        <button className="bus-button">Purchase</button>
+        <div className=" mb-3">{translate("Total", language)}: {total}$</div>
+        <button onClick={onPurchase} className="bus-button">{translate("Purchase", language)}</button>
+        <div className=" flex flex-row text-4xl justify-center items-center">
+          <div className="mr-10 flex flex-col justify-center items-center">
+            <div className=" relative">
+              <HomeButton onClick={navToHome} />
+            </div>
+            <div className=" relative mt-20">
+              <BackButton onClick={navBack} />
+            </div>
+          </div>
+          <NumUpDown language={language} subtitle="(18+)" title="Adult" onClickDown={adultDown} onClickUp={adultUp} value={adultAmount}/>
+          <NumUpDown language={language} subtitle="(13- 17)" title="Youth" onClickDown={youthDown} onClickUp={youthUp} value={youthAmount}/>
+        </div>
       </div>
     </>
   );

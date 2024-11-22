@@ -2,22 +2,56 @@
 import HomeButton from "@/app/components/HomeButton";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TimeDisplay from "@/app/components/Time";
 import { useGlobalState } from "@/app/components/StateProvider";
 import { translate } from "@/app/data/translate";
+import Header from "@/app/components/Header";
 
 export default function SingleTicketInfo() {
   const router = useRouter();
-  const { language } = useGlobalState();
+  const { language, selectedPass } = useGlobalState();
+
+  const [valid, setValid] = useState<string>("");
+  const [expires, setExpires] = useState<string>("");
+
+  useEffect(() => {
+    switch (selectedPass) {
+      //case "Single": {
+      default: {
+        setValid("A single ticket is valid for 1 (one) use.");
+        setExpires("Ticket expires 365 days from purchase date.");
+        break;
+      }
+      case "Daily": {
+        setValid("A daily ticket is valid for 1 (one) day.");
+        setExpires("Ticket expires 1 day from purchase date.");
+        break;
+      }
+      case "Weekly": {
+        setValid("A weekly ticket is valid for 7 (seven) days.");
+        setExpires("Ticket expires 7 days from purchase date.");
+        break;
+      }
+      case "Monthly": {
+        setValid("A monthly ticket is valid for 1 (one) Month.");
+        setExpires("Ticket expires 30 days from purchase date.");
+        break;
+      }
+    } 
+  })
 
   const navToHome = () => {
     router.push("/");
   };
 
   const handleReturnClick = () => {
-    router.push("/Weekly"); // Adjust this route as necessary
+    router.back();
   };
+
+  const handleOK = () => {
+    router.push("/pages/BuyTickets");
+  }
 
   return (
     <>
@@ -31,9 +65,7 @@ export default function SingleTicketInfo() {
       <TimeDisplay />
 
       <div className="absolute z-10 top-4 left-20">
-        <div className="bus-button text-4xl flex flex-row items-center space-x-3 bg-gray-500 rounded-none text-black outline-1 hover:bg-gray-500">
-          <p>{translate("Weekly", language)}</p>
-        </div>
+        <Header text={selectedPass} language={language}/>
       </div>
       <HomeButton onClick={navToHome} />
 
@@ -47,10 +79,10 @@ export default function SingleTicketInfo() {
         {translate("Nonrefundable", language)}
       </h4>
       <p className="font-normal  text-black p-5 text-2xl">
-        {translate("A weekly ticket is valid for 7 (seven) days.", language)}
+        {translate(valid, language)}
       </p>
       <p className="font-normal text-black p-5 text-2xl">
-        {translate("Ticket expires 7 days from purchase date.", language)}
+        {translate(expires, language)}
       </p>
       <p className="font-normal text-black p-5 text-2xl">
         {translate("No refunds or exchanges.", language)}
@@ -63,12 +95,13 @@ export default function SingleTicketInfo() {
    {/* Action Buttons */}
   <div className="flex justify-center gap-4 p-8">
     <button
-      className="px-6 py-2 bg-red-600 text-white font-bold rounded text-2xl"
+      className="px-6 py-2 bg-red-600 text-white font-bold rounded text-2xl" onClick={handleOK}
     >
       {translate("OK", language)}
     </button>
     <button
       className="px-6 py-2 bg-red-600 text-white font-bold rounded text-2xl"
+      onClick={handleReturnClick}
     >
       {translate("Return to selection", language)}
     </button>

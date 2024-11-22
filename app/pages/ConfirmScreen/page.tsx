@@ -6,17 +6,21 @@ import { useState } from "react";
 import TimeDisplay from "@/app/components/Time";
 import { useGlobalState } from "@/app/components/StateProvider";
 import { translate } from "@/app/data/translate";
+import Header from "@/app/components/Header";
 
 export default function SingleTicketInfo() {
   const router = useRouter();
-  const { language } = useGlobalState();
+  const { language, selectedPass, total, adultAmount, youthAmount, setTotal, setAdultAmount, setYouthAmount } = useGlobalState();
 
   const navToHome = () => {
     router.push("/");
   };
 
-  const handleReturnClick = () => {
-    router.push("/Daily"); // Adjust this route as necessary
+  const handleCancel = () => {
+    router.push("/pages/BuyTickets");
+    setAdultAmount(0);
+    setYouthAmount(0);
+    setTotal(0);
   };
 
   return (
@@ -31,30 +35,29 @@ export default function SingleTicketInfo() {
       <TimeDisplay />
 
       <div className="absolute z-10 top-4 left-20">
-        <div className="bus-button text-4xl flex flex-row items-center space-x-3 bg-gray-500 rounded-none text-black outline-1 hover:bg-gray-500">
-          <p>{translate("Daily", language)}</p>
-        </div>
+        <Header text={selectedPass} language={language}/>
       </div>
 
     
     {/* Red "Your Purchase" Box */}
     <div className="bg-red-600 text-white text-xl font-bold py-2 px-6">
-      Your Purchase
+      {translate("Your Purchase", language)}
     </div>
 
     <div className="flex flex-col items-center gap-6 p-8 bg-gray-900 bg-opacity-75 rounded-lg text-center text-white">
     {/* Details Section */}
   <div className="text-xl leading-relaxed">
-    <p>1x Adult Ticket</p>
-    <p>Total: $3.89</p>
-    <p className="mt-6">Payment Complete</p>
+    {adultAmount > 0 && <p>{translate("Adult", language)} {translate("Ticket", language)} x {adultAmount}</p>}
+    {youthAmount > 0 && <p>{translate("Youth", language)} {translate("Ticket", language)} x {youthAmount}</p>}
+    <p>  {translate("Total", language)}: {total} $</p>
+    <p className="mt-6"> {translate("Payment Complete", language)}</p>
   </div> 
   </div>
 
   <div>
   {/* Receipt Button */}
-  <button className="px-8 py-3 bg-red-600 text-white text-xl font-bold rounded">
-    Cancel
+  <button className="px-8 py-3 bg-red-600 text-white text-xl font-bold rounded" onClick={handleCancel}>
+  {translate("Cancel", language)}
   </button>
   </div>
 

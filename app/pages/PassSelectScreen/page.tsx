@@ -17,7 +17,7 @@ export default function Home() {
     }
     const onSelect = (value: string) => {
         setSelectedPass(value)
-        router.push("/pages/buytickets")
+        router.push("/pages/InfoScreen")
     };
     return (
         <>
