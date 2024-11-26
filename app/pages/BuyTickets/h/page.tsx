@@ -25,7 +25,7 @@ export default function Home() {
   });
 
   const onPurchase = () => {
-    router.push("/pages/ConfirmScreen")
+    router.push("/pages/ConfirmScreen/h")
   }
 
   const navBack = () => {

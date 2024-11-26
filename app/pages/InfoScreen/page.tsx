@@ -95,12 +95,12 @@ export default function SingleTicketInfo() {
    {/* Action Buttons */}
   <div className="flex justify-center gap-4 p-8">
     <button
-      className="px-6 py-2 bg-red-600 text-white font-bold rounded text-2xl" onClick={handleOK}
+      className="bus-button px-6 py-2 bg-red-550 text-white font-bold rounded text-2xl" onClick={handleOK}
     >
       {translate("OK", language)}
     </button>
     <button
-      className="px-6 py-2 bg-red-600 text-white font-bold rounded text-2xl"
+      className="bus-button px-6 py-2 bg-red-800 text-white font-bold rounded text-2xl"
       onClick={handleReturnClick}
     >
       {translate("Return to selection", language)}

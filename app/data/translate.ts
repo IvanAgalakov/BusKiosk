@@ -146,7 +146,11 @@ export const translateMap: Map<string, Map<string, string>> = new Map<
   ["Ticket", new Map<string, string>([["en", "Ticket"]])],
   ["Your Purchase", new Map<string, string>([["en", "Your Purchase"]])],
   ["Cancel", new Map<string, string>([["en", "Cancel"]])],
+  ["Receipt",  new Map<string, string>([["en", "Receipt"]])],
+  ["Pay", new Map<string, string>([["en", "Pay"]])],
   ["Payment Complete", new Map<string, string>([["en", "Payment Complete"]])],
+  ["Please use pinpad or insert cash to complete transaction", new Map<string, string>([["en", "Please use pinpad or insert cash to complete transaction"]])],
+ 
 ]);
 
 export function translate(value: string, language: string) {

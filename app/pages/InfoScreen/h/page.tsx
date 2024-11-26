@@ -7,8 +7,13 @@ import TimeDisplay from "@/app/components/Time";
 import { useGlobalState } from "@/app/components/StateProvider";
 import { translate } from "@/app/data/translate";
 import Header from "@/app/components/Header";
+import HCHomeButton from "@/app/components/HandicappedHomeButton";
+
 
 export default function SingleTicketInfo() {
+  const navToHandiHome = () => {
+    router.push("/h")
+}
   const router = useRouter();
   const { language, selectedPass } = useGlobalState();
 
@@ -41,9 +46,6 @@ export default function SingleTicketInfo() {
     } 
   })
 
-  const navToHome = () => {
-    router.push("/");
-  };
 
   const handleReturnClick = () => {
     router.back();
@@ -63,14 +65,12 @@ export default function SingleTicketInfo() {
         height={100}
       />
       <TimeDisplay />
+      <HCHomeButton onClick={navToHandiHome}/>
 
       <div className="absolute z-10 top-4 left-10">
         <Header text={selectedPass} language={language} />
       </div>
-       {/* Home Button in Bottom Right */}
-       <div className=" bottom-2 right-2 absolute p-9">
-        <HomeButton onClick={navToHome} />
-      </div>
+      
 
       {/* Ticket Regulations Modal */}
       <div className="absolute bottom-5 left-5 bg-white shadow-lg rounded-xl w-[80%] h-fit p-8">
@@ -98,12 +98,12 @@ export default function SingleTicketInfo() {
    {/* Action Buttons */}
   <div className="flex justify-center gap-4 p-8">
     <button
-      className="px-6 py-2 bg-red-600 text-white font-bold rounded text-2xl" onClick={handleOK}
+      className="bus-button px-6 py-2 bg-red-600 text-white font-bold rounded text-2xl" onClick={handleOK}
     >
       {translate("OK", language)}
     </button>
     <button
-      className="px-6 py-2 bg-red-600 text-white font-bold rounded text-2xl" onClick={handleReturnClick}
+      className="bus-button px-6 py-2 bg-red-800 text-white font-bold rounded text-2xl" onClick={handleReturnClick}
     >
       {translate("Return to selection", language)}
     </button>
