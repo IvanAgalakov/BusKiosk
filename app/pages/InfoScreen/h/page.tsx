@@ -67,9 +67,8 @@ export default function SingleTicketInfo() {
       <TimeDisplay />
       <HCHomeButton onClick={navToHandiHome}/>
 
-      <div className="absolute z-10 top-4 left-10">
         <Header text={selectedPass} language={language} />
-      </div>
+      
       
 
       {/* Ticket Regulations Modal */}
