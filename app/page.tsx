@@ -21,6 +21,9 @@ export default function Home() {
     router.push("pages/languages");
   }
 
+  const navToWhereTo = () => {
+    router.push("pages/whereto");
+  }
   return (
     <>
         <Image className=" absolute right-0 top-0" src={"/logo.png"} alt="logo" width={200} height={100} />
@@ -47,7 +50,7 @@ export default function Home() {
           <button className="bus-button">
             { translate("Bus Routes", language)}
           </button>
-          <button className="bus-button">
+          <button onClick={navToWhereTo}className="bus-button">
             { translate("Where To?", language)}
           </button>
         </div>
