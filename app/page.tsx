@@ -25,6 +25,10 @@ export default function Home() {
     router.push("pages/PassSelectScreen")
   }
 
+  const navToWhereTo = () => {
+    router.push("pages/WhereTo")
+  }
+
   return (
     <>
         <Image className=" absolute right-0 top-0" 
@@ -56,7 +60,7 @@ export default function Home() {
           <button className="bus-button">
             { translate("Bus Routes", language)}
           </button>
-          <button className="bus-button">
+          <button onClick={navToWhereTo} className="bus-button">
             { translate("Where To?", language)}
           </button>
         </div>
