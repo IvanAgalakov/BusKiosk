@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Select, { components, ControlProps } from 'react-select';
 import { destinations, Destinations } from '@/app/data/destinations';
+import SelectedDestinationCard from '@/app/components/SelectedDestinationCard'
+
 const controlStyles = {
   border: 'none',
   padding: '5px',
@@ -15,18 +17,31 @@ const ControlComponent = (props: ControlProps<Destinations, false>) => (
   </div>
 );
 
-export default () => (
-  <Select
-    isClearable
-    components={{ Control: ControlComponent }}
-    isSearchable
-    name="destination"
-    options={destinations}
-    styles={{
-      option: (baseStyles, state) => ({
-        ...baseStyles,
-        color: 'grey'
-      }),
-    }}
-  />
-);
+
+export default () => {
+  const [selectedDestination, setSelectedDestination] = useState<Destinations | null>(null);
+
+  return(
+    <div>
+    <Select
+      isClearable
+      components={{ Control: ControlComponent }}
+      isSearchable
+      name="destination"
+      options={destinations}
+      styles={{
+        option: (baseStyles, state) => ({
+          ...baseStyles,
+          color: 'grey'
+        }),
+      }}
+      value = {selectedDestination}
+      onChange = {setSelectedDestination}
+    />
+
+    <SelectedDestinationCard label = {selectedDestination?.label} routes = {selectedDestination?.routes}/>
+  </div>
+  );
+};
+
+//source: https://react-select.com/components#replaceable-components
