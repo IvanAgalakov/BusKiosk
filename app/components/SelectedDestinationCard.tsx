@@ -14,7 +14,7 @@ interface SelectedDestinationCardProps {
       <div>
         <ul>
             {routes?.map((route) => 
-            <li>
+            <li key={route[0]}>
                 {route[0]} + {route[1]}
             </li>)}
         </ul>
