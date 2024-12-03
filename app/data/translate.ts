@@ -3,10 +3,10 @@ export const translateMap: Map<string, Map<string, string>> = new Map<
   Map<string, string>
 >([
   [
-    "Purchase Pass",
+    "Purchase Ticket",
     new Map<string, string>([
-      ["en", "Purchase Pass"],
-      ["fr", "Acheter un Pass"],
+      ["en", "Purchase Ticket"],
+      ["fr", "Acheter un Billet"],
     ]),
   ],
 
@@ -130,13 +130,20 @@ export const translateMap: Map<string, Map<string, string>> = new Map<
     ]),
   ],
 
+  [
+    "Home Screen",
+    new Map<string, string>([
+      ["en", "Home Screen"]
+    ])
+  ],
+
   ["Single", new Map<string, string>([["en", "Single"]])],
 
   ["Monthly", new Map<string, string>([["en", "Monthly"]])],
 
   ["Weekly", new Map<string, string>([["en", "Weekly"]])],
 
-  ["Select pass", new Map<string, string>([["en", "Select pass"]])],
+  ["Select Ticket", new Map<string, string>([["en", "Select Ticket"]])],
 
   ["Children age 0-13 do not have to pay.", new Map<string, string>([["en", "Children age 0-13 do not have to pay."]])],
   ["Purchase", new Map<string, string>([["en", "Purchase"]])],

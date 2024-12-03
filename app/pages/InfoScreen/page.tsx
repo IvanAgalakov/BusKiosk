@@ -63,10 +63,8 @@ export default function SingleTicketInfo() {
         height={100}
       />
       <TimeDisplay />
-
-      <div className="absolute z-10 top-4 left-20">
-        <Header text={selectedPass} language={language}/>
-      </div>
+      <Header text={selectedPass} language={language}/>
+      
       <HomeButton onClick={navToHome} />
 
       {/* Ticket Regulations Modal */}

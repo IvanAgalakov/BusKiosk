@@ -98,7 +98,7 @@ export default function Home() {
         </div>
         <div className=" flex flex-col text-4xl justify-center items-center">
           <NumUpDown language={language} subtitle="(18+)" title="Adult" onClickDown={adultDown} onClickUp={adultUp} value={adultAmount}/>
-          <NumUpDown language={language} subtitle="(13- 17)" title="Youth" onClickDown={youthDown} onClickUp={youthUp} value={youthAmount}/>
+          <NumUpDown language={language} subtitle="(13-17)" title="Youth" onClickDown={youthDown} onClickUp={youthUp} value={youthAmount}/>
         </div>
       </div>
 

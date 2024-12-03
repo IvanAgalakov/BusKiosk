@@ -36,7 +36,9 @@ export default function Handicap() {
       />
       
       <TimeDisplay/>
-      
+      <div className=" text-2xl absolute top-4 p-4 rounded-none text-black bg-gray-400 text-center shadow-xl">
+        {translate("Home Screen", language)}
+      </div>
       <div className="absolute bottom-4 right-4 flex flex-row text-4xl space-x-3">
         <Image
           onClick={navToHome}
@@ -56,10 +58,12 @@ export default function Handicap() {
             <p>{ translate("Language", language) }</p>
           </button>
         </div>
-  
+
+
+
       <div className="grid grid-cols-3 gap-4 w-[80%] text-3xl absolute bottom-32">
         <button onClick={navToHandiPassSelection} className="bus-button">
-            { translate("Purchase Pass", language) }
+            { translate("Purchase Ticket", language) }
           </button>
           <button className="bus-button">
             { translate("Bus Routes", language)}
