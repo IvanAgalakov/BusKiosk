@@ -85,7 +85,9 @@ export default function Home() {
       />
       <TimeDisplay />
 
-      <Header text={selectedPass} language={language}/>
+      <div className=" text-2xl absolute top-4 text-black text-center underline">
+        {translate("Select Ticket", language)}
+      </div>
 
       <div className=" top-[25rem] absolute">
         <div className="text-3xl bg-slate-400 bg-opacity-50 p-3">

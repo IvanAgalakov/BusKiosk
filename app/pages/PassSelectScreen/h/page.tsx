@@ -35,8 +35,9 @@ export default function Home() {
             <TimeDisplay/>
             <HCHomeButton onClick={navToHandiHome}/>
 
-
-            <Header text={"Select Ticket"} language={language}/>
+            <div className=" text-2xl absolute top-4 text-black text-center underline">
+                {translate("Select Ticket", language)}
+            </div>
  
 
 

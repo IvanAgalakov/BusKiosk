@@ -31,8 +31,8 @@ export default function Home() {
       />
       <TimeDisplay />
 
-      <div className="absolute z-10 top-4 left-20">
-        <div className="bus-button text-3xl flex flex-row items-center space-x-3 bg-gray-500 rounded-none text-black outline-1 hover:bg-gray-500">
+      <div className="absolute z-10 top-4 left-1/2 transform -translate-x-1/2">
+        <div className="text-2xl flex flex-row items-center space-x-3 text-black underline">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
