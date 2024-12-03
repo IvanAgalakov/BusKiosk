@@ -4,6 +4,8 @@ import Select, { components, ControlProps } from 'react-select';
 import { destinations, Destinations } from '@/app/data/destinations';
 import SelectedDestinationCard from '@/app/components/SelectedDestinationCard'
 
+//source: https://react-select.com/components#replaceable-components
+
 const controlStyles = {
   border: 'none',
   padding: '5px',
@@ -20,6 +22,7 @@ const ControlComponent = (props: ControlProps<Destinations, false>) => (
 
 export default () => {
   const [selectedDestination, setSelectedDestination] = useState<Destinations | null>(null);
+
 
   return(
     <div>
@@ -38,10 +41,8 @@ export default () => {
       value = {selectedDestination}
       onChange = {setSelectedDestination}
     />
-
+    {/* Display route select buttons when props are not null*/}
     <SelectedDestinationCard label = {selectedDestination?.label} routes = {selectedDestination?.routes}/>
   </div>
   );
 };
-
-//source: https://react-select.com/components#replaceable-components
