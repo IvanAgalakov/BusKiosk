@@ -325,6 +325,13 @@ export const translateMap: Map<string, Map<string, string>> = new Map<
       ["ja", "了解"],
     ]),
   ],
+  [
+    "Accept",
+    new Map<string, string>([
+      ["en", "Accept & Continue"],
+    ]),
+  ],
+ 
 
   [
     "Return to selection",
@@ -481,6 +488,13 @@ export const translateMap: Map<string, Map<string, string>> = new Map<
   ],
 
   [
+    "Home Screen",
+    new Map<string, string>([
+      ["en", "Home Screen"]
+    ])
+  ],
+
+  [
     "Ticket",
     new Map<string, string>([
       ["en", "Ticket"],
@@ -548,7 +562,14 @@ export const translateMap: Map<string, Map<string, string>> = new Map<
       ["zh", "信息屏幕"],
       ["ja", "情報画面"],
     ]),
-  ]
+  ],
+  ["Receipt",  new Map<string, string>([["en", "Receipt"]])],
+  ["Pay", new Map<string, string>([["en", "Pay"]])],
+
+  ["Please use pinpad or insert cash to complete transaction", new Map<string, string>([["en", "Please use pinpad or insert cash to complete transaction"]])],
+  ["Date", new Map<string, string>([["en", "Date:"]])],
+  ["Thankyou", new Map<string, string>([["en", "Thank you for your purchase!"]])],
+
 ]);
 
 export function translate(value: string, language: string) {

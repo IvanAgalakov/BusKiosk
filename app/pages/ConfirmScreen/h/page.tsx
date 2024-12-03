@@ -17,13 +17,13 @@ export default function SingleTicketInfo() {
   };
 
   const handleCancel = () => {
-    router.push("/pages/BuyTickets");
+    router.push("/pages/BuyTickets/h");
     setAdultAmount(0);
     setYouthAmount(0);
     setTotal(0);
   };
   const handlePayment = () => {
-    router.push("/pages/EndScreen");
+    router.push("/pages/EndScreen/h");
   };
   
 
@@ -38,9 +38,9 @@ export default function SingleTicketInfo() {
       />
       <TimeDisplay />
 
-      <div className=" text-2xl absolute top-4 text-black text-center underline">
-        {translate("Payment Complete", language)}
-      </div>
+    
+        <Header text={selectedPass} language={language}/>
+      
 
     
     {/* Red "Your Purchase" Box */}
@@ -61,7 +61,7 @@ export default function SingleTicketInfo() {
   </div>
 
   <button
-  className=" bus-button absolute bottom-[7.5%] left-1/2 transform -translate-x-1/2 px-12 py-3 bg-red-600 text-white text-3xl font-bold rounded-lg  border-white"
+  className="bus-button absolute bottom-[7.5%] left-1/2 transform -translate-x-1/2 px-12 py-3 bg-red-600 text-white text-3xl font-bold rounded-lg border-white"
   onClick={handleCancel}
 >
   {translate("Cancel", language)}
@@ -73,7 +73,6 @@ export default function SingleTicketInfo() {
 >
   {translate("Pay", language)}
 </button>
-    
     
 
 

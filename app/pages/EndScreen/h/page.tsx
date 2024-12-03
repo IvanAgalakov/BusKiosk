@@ -7,25 +7,19 @@ import TimeDisplay from "@/app/components/Time";
 import { useGlobalState } from "@/app/components/StateProvider";
 import { translate } from "@/app/data/translate";
 import Header from "@/app/components/Header";
+import HCHomeButton from "@/app/components/HandicappedHomeButton";
 
 export default function SingleTicketInfo() {
   const router = useRouter();
   const { language, selectedPass, total, adultAmount, youthAmount, setTotal, setAdultAmount, setYouthAmount } = useGlobalState();
 
-  const navToHome = () => {
-    router.push("/");
+  const navToHandiHome = () => {
+    router.push("/h")
+  }
+  const navHandiReceipt = () => {
+    router.push("/pages/Receipt/h");
   };
 
-  const handleCancel = () => {
-    router.push("/pages/BuyTickets");
-    setAdultAmount(0);
-    setYouthAmount(0);
-    setTotal(0);
-  };
-  const handlePayment = () => {
-    router.push("/pages/EndScreen");
-  };
-  
 
   return (
     <>
@@ -37,10 +31,11 @@ export default function SingleTicketInfo() {
         height={100}
       />
       <TimeDisplay />
+      <HCHomeButton onClick={navToHandiHome}/>
 
-      <div className=" text-2xl absolute top-4 text-black text-center underline">
-        {translate("Payment Complete", language)}
-      </div>
+     
+        <Header text={selectedPass} language={language}/>
+      
 
     
     {/* Red "Your Purchase" Box */}
@@ -56,24 +51,23 @@ export default function SingleTicketInfo() {
     {adultAmount > 0 && <p>{translate("Adult", language)} {translate("Ticket", language)} x {adultAmount}</p>}
     {youthAmount > 0 && <p>{translate("Youth", language)} {translate("Ticket", language)} x {youthAmount}</p>}
     <p>  {translate("Total", language)}: ${total} </p>
-    <p className="mt-6"> {translate("Please use pinpad or insert cash to complete transaction", language)}</p>
   </div> 
+
+  <div className=" text-3xl absolute text-center bottom-1/4" >
+  <p> {translate("Payment Complete", language)}</p>
+  </div>
+
   </div>
 
   <button
-  className=" bus-button absolute bottom-[7.5%] left-1/2 transform -translate-x-1/2 px-12 py-3 bg-red-600 text-white text-3xl font-bold rounded-lg  border-white"
-  onClick={handleCancel}
+  className="bus-button absolute bottom-[7.5%] left-1/2 transform -translate-x-1/2 px-12 py-3 bg-red-600 text-white text-3xl font-bold rounded-lg border-white"
+  onClick={navHandiReceipt}
 >
-  {translate("Cancel", language)}
+
+  {translate("Receipt", language)}
 </button>
 
-<button
-  className="bus-button absolute bottom-2 left-[12%] transform -translate-x-1/2 px-12 py-3 bg-gray-900 text-white text-3xl font-bold rounded-lg border-white"
-  onClick={handlePayment}
->
-  {translate("Pay", language)}
-</button>
-    
+
     
 
 

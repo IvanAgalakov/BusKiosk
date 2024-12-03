@@ -10,17 +10,14 @@ import Header from "@/app/components/Header";
 import HCHomeButton from "@/app/components/HandicappedHomeButton";
 import BackButton from "@/app/components/BackButton";
 
-
 export default function SingleTicketInfo() {
-  const navToHandiHome = () => {
-    router.push("/h")
-}
   const router = useRouter();
-  const { language, selectedPass } = useGlobalState();
+  const { language, selectedPass, total, adultAmount, youthAmount, setTotal, setAdultAmount, setYouthAmount } = useGlobalState();
 
   const [valid, setValid] = useState<string>("");
   const [expires, setExpires] = useState<string>("");
 
+  
   useEffect(() => {
     switch (selectedPass) {
       //case "Single": {
@@ -44,21 +41,21 @@ export default function SingleTicketInfo() {
         setExpires("Ticket expires 30 days from purchase date.");
         break;
       }
+
     } 
   })
 
-
-  const handleReturnClick = () => {
-    router.back();
+  const navToHandiHome = () => {
+    router.push("/h");
+    setTotal(0)
+    setAdultAmount(0)
+    setYouthAmount(0)
   };
 
   const navBack = () => {
     router.push("/pages/PassSelectScreen/h");
   };
 
-  const handleOK = () => {
-    router.push("/pages/BuyTickets/h");
-  }
 
   return (
     <>
@@ -69,50 +66,35 @@ export default function SingleTicketInfo() {
         width={200}
         height={100}
       />
-      <TimeDisplay />
-      <HCHomeButton onClick={navToHandiHome}/>
-      <div className=" bottom-20 right-2 absolute p-8">
-        <BackButton onClick={navBack} />
-      </div>
-
-      <div className=" text-2xl absolute top-4 text-black text-center underline">
-        {translate("Info Screen", language)}
-      </div>
-
-    
-      {/* Ticket Regulations Modal */}
-      <div className="absolute bottom-5 left-5 bg-white shadow-lg rounded-xl w-[80%] h-fit p-8">
-        <h2 className="flex justify-center text-center p-10 text-red-800 text-4xl font-bold">
-          {translate("Ticket Regulations", language)}
-        </h2>
-
-      <h4 className="font-bold text-black p-5 mb-3 text-3xl">
-        {translate("Nonrefundable", language)}
-      </h4>
-      <p className="font-normal  text-black p-5 text-2xl">
-        {valid}
-      </p>
-      <p className="font-normal text-black p-5 text-2xl">
-        {expires}
-      </p>
-      <p className="font-normal text-black p-5 text-2xl">
-        {translate("No refunds or exchanges.", language)}
-      </p>
-      <p className="font-normal text-black p-5 text-2xl">
-        {translate("Youth age 13 - 17 yrs old", language)}
-      </p>
-
-
-   {/* Action Buttons */}
-  <div className="flex justify-center gap-4 p-8">
-    <button
-      className="bus-button px-6 py-2 bg-red-600 text-white font-bold rounded text-2xl" onClick={handleOK}
+      <TimeDisplay />     
+  
+    <div className="bg-white text-black shadow-md  w-[50%] h-fit p-10 mt-20 bottom-5 absolute fixed">
+    <button 
+    className=" absolute bottom-2 right-4 text-gray-500 hover:text-gray-800 focus:outline-none text-2xl"
+    onClick={navToHandiHome} // Replace with your navigation function
+    aria-label="Close"
     >
-      {translate("Accept", language)}
+     ✕
     </button>
+        
+    {/* Details Section */}
+    <div className="text-2xl leading-relaxed justify-between flex-col p-5 ">
+
+    <p className="absolute left-2 top-2 text-xl text-gray-600 "> {translate("Date", language)} {new Date().toLocaleDateString()}</p>
+
+    <p className="relative inset-0 flex items-center justify-center ">      
+    {translate("Receipt", language)}
+     </p>
+     <hr className="my-4 border-gray-400" />
+    {adultAmount > 0 && <p>{translate("Adult", language)} {translate("Ticket", language)} x {adultAmount}</p>}
+    {youthAmount > 0 && <p>{translate("Youth", language)} {translate("Ticket", language)} x {youthAmount}</p>}
+    <p>  {translate("Total", language)}: ${total} </p> 
     
-  </div>
-</div>
+   
+    <hr className="my-4 border-gray-400" /> 
+    {translate("Thankyou", language)} 
+    </div>  
+     </div>
     </>
   );
 }
