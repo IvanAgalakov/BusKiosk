@@ -21,7 +21,7 @@ interface SelectedDestinationCardProps {
         routes!= null &&
         <div className="p-10 flex flex-row space-x-3">
             <div className="w-96 bg-white p-5 rounded-lg">
-                
+                <h1 className = "text-black text-3xl">Destination: {label}</h1>
                 {/*Map routes to buttons for user to select their desired route*/}
                 <div className="p-3 flex flex-col space-x-3"> 
                 {routes?.map((route) =>
