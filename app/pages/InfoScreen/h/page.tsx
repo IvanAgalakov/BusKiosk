@@ -8,6 +8,7 @@ import { useGlobalState } from "@/app/components/StateProvider";
 import { translate } from "@/app/data/translate";
 import Header from "@/app/components/Header";
 import HCHomeButton from "@/app/components/HandicappedHomeButton";
+import BackButton from "@/app/components/BackButton";
 
 
 export default function SingleTicketInfo() {
@@ -51,6 +52,10 @@ export default function SingleTicketInfo() {
     router.back();
   };
 
+  const navBack = () => {
+    router.push("/pages/PassSelectScreen/h");
+  };
+
   const handleOK = () => {
     router.push("/pages/BuyTickets/h");
   }
@@ -66,6 +71,9 @@ export default function SingleTicketInfo() {
       />
       <TimeDisplay />
       <HCHomeButton onClick={navToHandiHome}/>
+      <div className=" bottom-20 right-2 absolute p-8">
+        <BackButton onClick={navBack} />
+      </div>
 
         <Header text={selectedPass} language={language} />
       
@@ -99,13 +107,9 @@ export default function SingleTicketInfo() {
     <button
       className="bus-button px-6 py-2 bg-red-600 text-white font-bold rounded text-2xl" onClick={handleOK}
     >
-      {translate("OK", language)}
+      {translate("Accept", language)}
     </button>
-    <button
-      className="bus-button px-6 py-2 bg-red-800 text-white font-bold rounded text-2xl" onClick={handleReturnClick}
-    >
-      {translate("Return to selection", language)}
-    </button>
+    
   </div>
 </div>
     </>

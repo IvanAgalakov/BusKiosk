@@ -7,6 +7,7 @@ import TimeDisplay from "@/app/components/Time";
 import { useGlobalState } from "@/app/components/StateProvider";
 import { translate } from "@/app/data/translate";
 import Header from "@/app/components/Header";
+import BackButton from "@/app/components/BackButton";
 
 export default function SingleTicketInfo() {
   const router = useRouter();
@@ -15,6 +16,7 @@ export default function SingleTicketInfo() {
   const [valid, setValid] = useState<string>("");
   const [expires, setExpires] = useState<string>("");
 
+  
   useEffect(() => {
     switch (selectedPass) {
       //case "Single": {
@@ -38,6 +40,7 @@ export default function SingleTicketInfo() {
         setExpires("Ticket expires 30 days from purchase date.");
         break;
       }
+
     } 
   })
 
@@ -53,6 +56,11 @@ export default function SingleTicketInfo() {
     router.push("/pages/BuyTickets");
   }
 
+  const navBack = () => {
+    router.push("/pages/PassSelectScreen");
+  };
+
+
   return (
     <>
       <Image
@@ -64,14 +72,16 @@ export default function SingleTicketInfo() {
       />
       <TimeDisplay />
 
-  
-        <Header text={selectedPass} language={language}/>
-    
-
+      <Header text={selectedPass} language={language}/>
+      
       <HomeButton onClick={navToHome} />
 
+      <div className=" left-20 absolute top-0">
+        <BackButton onClick={navBack} />
+      </div>
+
       {/* Ticket Regulations Modal */}
-      <div className="bg-white shadow-lg rounded-xl w-[80%] h-[] p-8 mt-20">
+      <div className="bg-white shadow-lg rounded-xl w-[80%] h-[730px] p-8 mt-20">
         <h2 className="flex justify-center text-center p-10 text-red-800 text-4xl font-bold">
           {translate("Ticket Regulations", language)}
         </h2>
@@ -98,14 +108,9 @@ export default function SingleTicketInfo() {
     <button
       className="bus-button px-6 py-2 bg-red-550 text-white font-bold rounded text-2xl" onClick={handleOK}
     >
-      {translate("OK", language)}
+      {translate("Accept", language)}
     </button>
-    <button
-      className="bus-button px-6 py-2 bg-red-800 text-white font-bold rounded text-2xl"
-      onClick={handleReturnClick}
-    >
-      {translate("Return to selection", language)}
-    </button>
+   
   </div>
 </div>
     </>

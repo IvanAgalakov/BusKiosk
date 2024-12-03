@@ -15,6 +15,10 @@ export default function SingleTicketInfo() {
   const navToHome = () => {
     router.push("/");
   };
+  const navReceipt = () => {
+    router.push("/pages/Receipt");
+  };
+ 
 
 
 
@@ -59,7 +63,7 @@ export default function SingleTicketInfo() {
 
   <button
   className="bus-button absolute bottom-[7.5%] left-1/2 transform -translate-x-1/2 px-12 py-3 bg-red-600 text-white text-3xl font-bold rounded-lg"
- // onClick={handleCancel}
+  onClick={navReceipt}
 >
   {translate("Receipt", language)}
 </button>

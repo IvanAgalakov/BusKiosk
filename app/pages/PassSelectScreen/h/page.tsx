@@ -8,6 +8,7 @@ import TimeDisplay from "@/app/components/Time";
 import { useGlobalState } from "@/app/components/StateProvider";
 import { translate } from "@/app/data/translate";
 import HCHomeButton from "@/app/components/HandicappedHomeButton";
+import Header from "@/app/components/Header";
 
 export default function Home() {
     const router = useRouter();
@@ -34,14 +35,14 @@ export default function Home() {
             <TimeDisplay/>
             <HCHomeButton onClick={navToHandiHome}/>
 
-            <div className="absolute bottom-15">
-                <div className="bus-button text-3xl flex flex-row items-center space-x-3 bg-gray-500 rounded-none text-black outline-1 hover:bg-gray-500">
-                    <p>{translate("Select pass", language)}</p>
-                </div>
-            </div>
+
+            <Header text={"Select Ticket"} language={language}/>
  
 
-            <div className="grid grid-cols-2 gap-9 w-[65%] text-3xl absolute bottom-12">
+
+ 
+
+            <div className="grid grid-cols-2 gap-9 w-[65%] h-[25%] text-3xl absolute bottom-12">
                 <button className = "bus-button" onClick={() => onSelect("Single")}>
                     { translate("Single", language)}
                 </button>

@@ -15,7 +15,10 @@ export default function SingleTicketInfo() {
 
   const navToHandiHome = () => {
     router.push("/h")
-}
+  }
+  const navHandiReceipt = () => {
+    router.push("/pages/Receipt/h");
+  };
 
 
   return (
@@ -58,8 +61,9 @@ export default function SingleTicketInfo() {
 
   <button
   className="bus-button absolute bottom-[7.5%] left-1/2 transform -translate-x-1/2 px-12 py-3 bg-red-600 text-white text-3xl font-bold rounded-lg border-white"
- // onClick={handleCancel}
+  onClick={navHandiReceipt}
 >
+
   {translate("Receipt", language)}
 </button>
 

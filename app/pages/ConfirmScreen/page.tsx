@@ -68,11 +68,12 @@ export default function SingleTicketInfo() {
 </button>
 
 <button
-  className="bus-button absolute bottom-2 left-[10%] transform -translate-x-1/2 px-12 py-3 bg-gray-900 text-white text-3xl font-bold rounded-lg border-white"
+  className="bus-button absolute bottom-2 left-[12%] transform -translate-x-1/2 px-12 py-3 bg-gray-900 text-white text-3xl font-bold rounded-lg border-white"
   onClick={handlePayment}
 >
   {translate("Pay", language)}
 </button>
+    
     
 
 

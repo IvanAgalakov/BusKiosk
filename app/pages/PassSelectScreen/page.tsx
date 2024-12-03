@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import TimeDisplay from "@/app/components/Time";
 import { useGlobalState } from "@/app/components/StateProvider";
 import { translate } from "@/app/data/translate";
+import Header from "@/app/components/Header";
 
 export default function Home() {
     const router = useRouter();
@@ -31,11 +32,8 @@ export default function Home() {
             <TimeDisplay/>
             <HomeButton onClick={navToHome}/>
 
-            <div className="absolute top-20">
-                <div className="bus-button text-3xl flex flex-row items-center space-x-3 bg-gray-500 rounded-none text-black outline-1 hover:bg-gray-500">
-                    <p>{translate("Select pass", language)}</p>
-                </div>
-            </div>
+
+            <Header text={"Select Ticket"} language={language}/>
  
 
             <div className="grid grid-cols-1 gap-20 w-[50%] absolute bottom-12">
