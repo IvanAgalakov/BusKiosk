@@ -38,9 +38,9 @@ export default function SingleTicketInfo() {
       />
       <TimeDisplay />
 
-      
-        <Header text={selectedPass} language={language}/>
-      
+      <div className=" text-2xl absolute top-4 text-black text-center underline">
+        {translate("Payment Complete", language)}
+      </div>
 
     
     {/* Red "Your Purchase" Box */}

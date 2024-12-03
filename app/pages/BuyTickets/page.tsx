@@ -90,7 +90,9 @@ export default function Home() {
         <BackButton onClick={navBack} />
       </div>
 
-      <Header text={selectedPass} language={language}/>
+      <div className=" text-2xl absolute top-4 text-black text-center underline">
+        {translate("Purchase Ticket", language)}
+      </div>
 
       <div className=" top-52 absolute">
         <div className="text-3xl bg-slate-400 bg-opacity-50 p-3">

@@ -32,8 +32,9 @@ export default function Home() {
             <TimeDisplay/>
             <HomeButton onClick={navToHome}/>
 
-
-            <Header text={"Select Ticket"} language={language}/>
+            <div className=" text-2xl absolute top-4 text-black text-center underline">
+                {translate("Select Ticket", language)}
+            </div>
  
 
             <div className="grid grid-cols-1 gap-20 w-[50%] absolute bottom-12">

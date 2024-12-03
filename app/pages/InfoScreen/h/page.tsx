@@ -75,10 +75,11 @@ export default function SingleTicketInfo() {
         <BackButton onClick={navBack} />
       </div>
 
-        <Header text={selectedPass} language={language} />
-      
-      
+      <div className=" text-2xl absolute top-4 text-black text-center underline">
+        {translate("Info Screen", language)}
+      </div>
 
+    
       {/* Ticket Regulations Modal */}
       <div className="absolute bottom-5 left-5 bg-white shadow-lg rounded-xl w-[80%] h-fit p-8">
         <h2 className="flex justify-center text-center p-10 text-red-800 text-4xl font-bold">
