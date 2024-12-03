@@ -86,7 +86,7 @@ export default function Home() {
       <TimeDisplay />
 
       <div className=" text-2xl absolute top-4 text-black text-center underline">
-        {translate("Select Ticket", language)}
+        {translate("Purchase Ticket", language)}
       </div>
 
       <div className=" top-[25rem] absolute">

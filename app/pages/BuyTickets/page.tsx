@@ -91,7 +91,7 @@ export default function Home() {
       </div>
 
       <div className=" text-2xl absolute top-4 text-black text-center underline">
-        {translate("Select Ticket", language)}
+        {translate("Purchase Ticket", language)}
       </div>
 
       <div className=" top-52 absolute">

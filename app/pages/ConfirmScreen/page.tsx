@@ -35,7 +35,7 @@ export default function SingleTicketInfo() {
       <TimeDisplay />
 
       <div className=" text-2xl absolute top-4 text-black text-center underline">
-        {translate("Select Ticket", language)}
+        {translate("Payment Complete", language)}
       </div>
 
     

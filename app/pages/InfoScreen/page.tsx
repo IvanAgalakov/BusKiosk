@@ -66,7 +66,7 @@ export default function SingleTicketInfo() {
 
       
       <div className=" text-2xl absolute top-4 text-black text-center underline">
-        {translate("Select Ticket", language)}
+        {translate("Info Screen", language)}
       </div>
 
       {/* Ticket Regulations Modal */}

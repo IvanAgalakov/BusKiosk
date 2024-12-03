@@ -535,6 +535,20 @@ export const translateMap: Map<string, Map<string, string>> = new Map<
       ["ja", "支払い完了"],
     ]),
   ],
+
+  [
+    "Info Screen",
+    new Map<string, string>([
+      ["en", "Info Screen"],
+      ["fr", "Écran d'info"],
+      ["es", "Pantalla de información"],
+      ["de", "Informationsbildschirm"],
+      ["it", "Schermata informazioni"],
+      ["pt", "Tela de informações"],
+      ["zh", "信息屏幕"],
+      ["ja", "情報画面"],
+    ]),
+  ]
 ]);
 
 export function translate(value: string, language: string) {
