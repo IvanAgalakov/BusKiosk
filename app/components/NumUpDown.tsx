@@ -9,7 +9,7 @@ interface NumUpDownProps {
     language: string;
   }
   
-  export default function NumUpDown({ onClickUp, onClickDown, title, value, subtitle, language }: NumUpDownProps) {
+  export default function NumUpDown({ onClickUp, onClickDown, title, value, subtitle, language,}: NumUpDownProps) {
     return (
         <div className=" mt-10 ml-10 flex flex-row items-center">
         <div className="flex-col">

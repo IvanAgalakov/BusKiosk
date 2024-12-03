@@ -7,6 +7,7 @@ import TimeDisplay from "./components/Time";
 import { translate } from "./data/translate";
 import { useState } from "react";
 import { useGlobalState } from "./components/StateProvider";
+import Header from "./components/Header";
 
 export default function Home() {
   const router = useRouter();
@@ -35,6 +36,10 @@ export default function Home() {
 
         <TimeDisplay/>
 
+        <div className=" text-2xl absolute top-4 p-4 rounded-none text-black bg-gray-400 text-center shadow-xl">
+          {translate("Home Screen", language)}
+        </div>
+
         <div onClick={navToHandHome} className=" absolute bottom-4 right-4 flex flex-row text-4xl space-x-3">
           <Image className="z-10 hover:brightness-50 cursor-pointer" src={"/disability.png"} alt={"disability"} width={100} height={100} />
         </div>
@@ -50,7 +55,7 @@ export default function Home() {
 
         <div className="grid grid-cols-2 gap-4 w-[80%]">
           <button onClick={navToPassSelection} className="bus-button pt-10 pb-10 col-span-2">
-            { translate("Purchase Pass", language) }
+            { translate("Purchase Ticket", language) }
             
           </button>
           <button className="bus-button">
