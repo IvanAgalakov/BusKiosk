@@ -64,9 +64,10 @@ export default function SingleTicketInfo() {
       />
       <TimeDisplay />
 
-      <div className="absolute z-10 top-4 left-10">
-        <Header text={selectedPass} language={language} />
+      <div className=" text-2xl absolute top-4 text-black text-center underline">
+        {translate("Info Screen", language)}
       </div>
+
        {/* Home Button in Bottom Right */}
        <div className=" bottom-2 right-2 absolute p-9">
         <HomeButton onClick={navToHome} />

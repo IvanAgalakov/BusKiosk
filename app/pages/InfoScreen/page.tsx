@@ -63,9 +63,11 @@ export default function SingleTicketInfo() {
         height={100}
       />
       <TimeDisplay />
-      <Header text={selectedPass} language={language}/>
+
       
-      <HomeButton onClick={navToHome} />
+      <div className=" text-2xl absolute top-4 text-black text-center underline">
+        {translate("Info Screen", language)}
+      </div>
 
       {/* Ticket Regulations Modal */}
       <div className="bg-white shadow-lg rounded-xl w-[80%] h-[] p-8 mt-20">

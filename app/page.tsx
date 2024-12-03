@@ -36,7 +36,7 @@ export default function Home() {
 
         <TimeDisplay/>
 
-        <div className=" text-2xl absolute top-4 p-4 rounded-none text-black bg-gray-400 text-center shadow-xl">
+        <div className=" text-2xl absolute top-4 text-black text-center underline">
           {translate("Home Screen", language)}
         </div>
 

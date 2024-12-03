@@ -36,9 +36,9 @@ export default function Handicap() {
       />
       
       <TimeDisplay/>
-      <div className=" text-2xl absolute top-4 p-4 rounded-none text-black bg-gray-400 text-center shadow-xl">
-        {translate("Home Screen", language)}
-      </div>
+      <div className=" text-2xl absolute top-4 text-black text-center underline">
+          {translate("Home Screen", language)}
+        </div>
       <div className="absolute bottom-4 right-4 flex flex-row text-4xl space-x-3">
         <Image
           onClick={navToHome}
