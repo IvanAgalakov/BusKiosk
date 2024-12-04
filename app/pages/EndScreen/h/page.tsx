@@ -34,7 +34,7 @@ export default function SingleTicketInfo() {
       <HCHomeButton onClick={navToHandiHome}/>
 
      
-        <Header text={selectedPass} language={language}/>
+        <Header text="Payment Complete" language={language}/>
       
 
     

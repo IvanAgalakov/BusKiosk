@@ -37,6 +37,11 @@ export const GlobalStateProvider = ({ children }: { children: ReactNode }) => {
     const resetTimer = () => {
       if (idleTimer) clearTimeout(idleTimer);
       idleTimer = setTimeout(() => {
+        setAdultAmount(0);
+        setYouthAmount(0);
+        setTotal(0);
+        setSelectedPass("None");
+        setLanguage("en");
         router.push("/");
       }, 10000);
     };

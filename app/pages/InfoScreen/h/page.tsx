@@ -75,9 +75,7 @@ export default function SingleTicketInfo() {
         <BackButton onClick={navBack} />
       </div>
 
-      <div className=" text-2xl absolute top-4 text-black text-center underline">
-        {translate("Info Screen", language)}
-      </div>
+      <Header text="Info Screen" language={language}/>
 
     
       {/* Ticket Regulations Modal */}

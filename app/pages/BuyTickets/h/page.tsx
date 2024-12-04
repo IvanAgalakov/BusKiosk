@@ -85,9 +85,7 @@ export default function Home() {
       />
       <TimeDisplay />
 
-      <div className=" text-2xl absolute top-4 text-black text-center underline">
-        {translate("Purchase Ticket", language)}
-      </div>
+      <Header text="Purchase Ticket" language={language}/>
 
       <div className=" top-[25rem] absolute">
         <div className="text-3xl bg-slate-400 bg-opacity-50 p-3">

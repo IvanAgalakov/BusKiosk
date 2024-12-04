@@ -325,12 +325,16 @@ export const translateMap: Map<string, Map<string, string>> = new Map<
       ["ja", "了解"],
     ]),
   ],
-  [
-    "Accept",
-    new Map<string, string>([
-      ["en", "Accept & Continue"],
-    ]),
-  ],
+  ["Accept", new Map<string, string>([
+    ["en", "Accept & Continue"],
+    ["fr", "Accepter et Continuer"],
+    ["es", "Aceptar y Continuar"],
+    ["de", "Akzeptieren und Fortfahren"],
+    ["it", "Accetta e Continua"],
+    ["pt", "Aceitar e Continuar"],
+    ["zh", "接受并继续"],
+    ["ja", "承認して続行"],
+  ])],
  
 
   [
@@ -487,12 +491,16 @@ export const translateMap: Map<string, Map<string, string>> = new Map<
     ]),
   ],
 
-  [
-    "Home Screen",
-    new Map<string, string>([
-      ["en", "Home Screen"]
-    ])
-  ],
+  ["Home Screen", new Map<string, string>([
+    ["en", "Home Screen"],
+    ["fr", "Écran d'Accueil"],
+    ["es", "Pantalla de Inicio"],
+    ["de", "Startbildschirm"],
+    ["it", "Schermata Iniziale"],
+    ["pt", "Tela Inicial"],
+    ["zh", "主屏幕"],
+    ["ja", "ホーム画面"],
+  ])],
 
   [
     "Ticket",
@@ -563,12 +571,71 @@ export const translateMap: Map<string, Map<string, string>> = new Map<
       ["ja", "情報画面"],
     ]),
   ],
-  ["Receipt",  new Map<string, string>([["en", "Receipt"]])],
-  ["Pay", new Map<string, string>([["en", "Pay"]])],
+  ["Receipt", new Map<string, string>([
+    ["en", "Receipt"],
+    ["fr", "Reçu"],
+    ["es", "Recibo"],
+    ["de", "Quittung"],
+    ["it", "Ricevuta"],
+    ["pt", "Recibo"],
+    ["zh", "收据"],
+    ["ja", "領収書"],
+  ])],
 
-  ["Please use pinpad or insert cash to complete transaction", new Map<string, string>([["en", "Please use pinpad or insert cash to complete transaction"]])],
-  ["Date", new Map<string, string>([["en", "Date:"]])],
-  ["Thankyou", new Map<string, string>([["en", "Thank you for your purchase!"]])],
+  ["Pay", new Map<string, string>([
+    ["en", "Pay"],
+    ["fr", "Payer"],
+    ["es", "Pagar"],
+    ["de", "Bezahlen"],
+    ["it", "Pagare"],
+    ["pt", "Pagar"],
+    ["zh", "支付"],
+    ["ja", "支払う"],
+  ])],
+
+  ["Please use pinpad or insert cash to complete transaction", new Map<string, string>([
+    ["en", "Please use pinpad or insert cash to complete transaction"],
+    ["fr", "Veuillez utiliser le terminal de paiement ou insérer des espèces pour terminer la transaction"],
+    ["es", "Por favor, use el datáfono o inserte efectivo para completar la transacción"],
+    ["de", "Bitte verwenden Sie das Eingabegerät oder legen Sie Bargeld ein, um die Transaktion abzuschließen"],
+    ["it", "Utilizzare il terminale di pagamento o inserire contanti per completare la transazione"],
+    ["pt", "Por favor, use o terminal de pagamento ou insira dinheiro para concluir a transação"],
+    ["zh", "请使用支付终端或插入现金以完成交易"],
+    ["ja", "取引を完了するには、端末またはキャッシュを使用してください"],
+  ])],
+
+  ["Date", new Map<string, string>([
+    ["en", "Date:"],
+    ["fr", "Date :"],
+    ["es", "Fecha:"],
+    ["de", "Datum:"],
+    ["it", "Data:"],
+    ["pt", "Data:"],
+    ["zh", "日期："],
+    ["ja", "日付："],
+  ])],
+
+  ["Thankyou", new Map<string, string>([
+    ["en", "Thank you for your purchase!"],
+    ["fr", "Merci pour votre achat !"],
+    ["es", "¡Gracias por su compra!"],
+    ["de", "Vielen Dank für Ihren Einkauf!"],
+    ["it", "Grazie per il tuo acquisto!"],
+    ["pt", "Obrigado pela sua compra!"],
+    ["zh", "感谢您的购买！"],
+    ["ja", "ご購入ありがとうございます！"],
+  ])],
+
+  ["Payment Pending", new Map<string, string>([
+    ["en", "Payment Pending"],
+    ["fr", "Paiement en attente"],
+    ["es", "Pago pendiente"],
+    ["de", "Zahlung ausstehend"],
+    ["it", "Pagamento in sospeso"],
+    ["pt", "Pagamento pendente"],
+    ["zh", "支付待定"],
+    ["ja", "支払い保留中"],
+  ])],
 
 ]);
 

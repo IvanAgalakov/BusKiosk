@@ -35,7 +35,7 @@ export default function SingleTicketInfo() {
       <HomeButton onClick={navToHome} />
       
      
-        <Header text={selectedPass} language={language}/>
+        <Header text="Payment Complete" language={language}/>
       
 
     

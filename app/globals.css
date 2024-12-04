@@ -23,6 +23,6 @@ body {
 
 @layer components {
   .bus-button {
-      @apply bg-red-600 rounded-2xl p-5 hover:bg-red-900 outline-4 outline outline-white;
+      @apply bg-red-600 rounded-2xl p-5 hover:bg-red-900 outline-4 outline outline-white disabled:bg-gray-800;
   }
 }

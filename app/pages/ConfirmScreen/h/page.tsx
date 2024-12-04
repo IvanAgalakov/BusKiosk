@@ -39,7 +39,7 @@ export default function SingleTicketInfo() {
       <TimeDisplay />
 
     
-        <Header text={selectedPass} language={language}/>
+      <Header text="Payment Pending" language={language}/>
       
 
     

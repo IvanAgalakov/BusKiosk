@@ -38,9 +38,7 @@ export default function SingleTicketInfo() {
       />
       <TimeDisplay />
 
-      <div className=" text-2xl absolute top-4 text-black text-center underline">
-        {translate("Payment Complete", language)}
-      </div>
+      <Header text="Payment Pending" language={language}/>
 
     
     {/* Red "Your Purchase" Box */}

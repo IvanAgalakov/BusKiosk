@@ -73,9 +73,7 @@ export default function SingleTicketInfo() {
       <TimeDisplay />
       
      
-      <div className=" text-2xl absolute top-4 text-black text-center underline">
-        {translate("Info Screen", language)}
-      </div>
+      <Header text="Info Screen" language={language}/>
     <HomeButton onClick={navToHome} />
       
       <div className=" left-20 absolute top-0">

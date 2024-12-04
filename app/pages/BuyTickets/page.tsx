@@ -90,9 +90,7 @@ export default function Home() {
         <BackButton onClick={navBack} />
       </div>
 
-      <div className=" text-2xl absolute top-4 text-black text-center underline">
-        {translate("Purchase Ticket", language)}
-      </div>
+      <Header text="Purchase Ticket" language={language}/>
 
       <div className=" top-52 absolute">
         <div className="text-3xl bg-slate-400 bg-opacity-50 p-3">
@@ -106,7 +104,7 @@ export default function Home() {
 
       <div className=" bottom-5 absolute flex flex-col justify-center items-center">
         <div className=" mb-3">{translate("Total", language)}: {total}$</div>
-        <button onClick={onPurchase} className="bus-button">{translate("Purchase", language)}</button>
+        <button disabled={adultAmount == 0 && youthAmount == 0} onClick={onPurchase} className="bus-button">{translate("Purchase", language)}</button>
       </div>
     </>
   );

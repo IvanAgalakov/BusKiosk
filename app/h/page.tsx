@@ -6,6 +6,7 @@ import TimeDisplay from "../components/Time";
 import { translate } from "../data/translate";
 import { useState } from "react";
 import { useGlobalState } from "../components/StateProvider";
+import Header from "../components/Header";
 
 export default function Handicap() {
 
@@ -36,9 +37,7 @@ export default function Handicap() {
       />
       
       <TimeDisplay/>
-      <div className=" text-2xl absolute top-4 text-black text-center underline">
-          {translate("Home Screen", language)}
-        </div>
+      <Header text="Home Screen" language={language}/>
       <div className="absolute bottom-4 right-4 flex flex-row text-4xl space-x-3">
         <Image
           onClick={navToHome}
