@@ -30,6 +30,10 @@ export default function Home() {
     router.push("pages/WhereToScreen")
   }
 
+  const navToBusRoutes = () => {
+    router.push("pages/BusRouteScreen")
+  }
+
   return (
     <>
         <Image className=" absolute right-0 top-0" 
@@ -62,7 +66,7 @@ export default function Home() {
             { translate("Purchase Ticket", language) }
             
           </button>
-          <button className="bus-button">
+          <button onClick={navToBusRoutes} className="bus-button">
             { translate("Bus Routes", language)}
           </button>
           <button onClick={navToWhereTo} className="bus-button">
