@@ -43,7 +43,7 @@ export const GlobalStateProvider = ({ children }: { children: ReactNode }) => {
         setSelectedPass("None");
         setLanguage("en");
         router.push("/");
-      }, 1000000);
+      }, 10000);
     };
 
     const handleUserActivity = () => {
