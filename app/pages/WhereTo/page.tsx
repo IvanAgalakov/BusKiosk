@@ -54,7 +54,9 @@ export default function Home() {
         </div>
       </div>
       <HomeButton onClick={navToHome} />
-      <DestinationDropdown />
+      <div className="absolute top-40 w-full p-4">
+        <DestinationDropdown />
+      </div>
     </>
   );
 }

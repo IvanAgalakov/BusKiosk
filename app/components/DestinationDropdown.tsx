@@ -37,13 +37,15 @@ export default () => {
           ...baseStyles,
           color: 'grey',
           position: 'static',
-          width: '50%',
+          width: '100%',
+          borderRadius: '15px'
+          
         }),
       }}
       value = {selectedDestination}
       onChange = {setSelectedDestination}
     />
-    {/* Display route select buttons when props are not null*/}
+    {/* Display route select buttons when props are populated*/}
     <SelectedDestinationCard label = {selectedDestination?.label} routes = {selectedDestination?.routes}/>
   </div>
   );
