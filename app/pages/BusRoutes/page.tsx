@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import HomeButton from "@/app/components/HomeButton";
 import { useRouter } from "next/navigation";
+import { translate } from "@/app/data/translate";
 
 // Type definitions for better type safety
 interface Stop {
@@ -162,12 +163,12 @@ export default function Home() {
         <div className="bg-white shadow-md rounded-lg overflow-hidden mt-8">
           <h2 className="text-2xl font-bold p-4 bg-blue-50 border-b text-black flex items-center">
             {MapPinIcon}
-            Nearby Routes
+            {translate("Nearby Routes", language)}
           </h2>
           
           {loading && (
             <div className="p-4 text-center text-gray-500 animate-pulse">
-              Loading routes...
+              {translate("Loading routes...", language)}
             </div>
           )}
           
@@ -179,7 +180,7 @@ export default function Home() {
           
           {!loading && !error && routes.length === 0 && (
             <div className="p-4 text-center text-gray-500">
-              No routes found within {distance} km.
+              ERROR: No routes found within {distance} km.
             </div>
           )}
           
@@ -223,9 +224,9 @@ export default function Home() {
                                   </h5>
                                   {closestTimes.length > 1 && (
                                     <p className="ml-2 outline outline-2 outline-black p-2 text-right">
-                                      <span className="font-bold">Arriving at:</span> {closestTimes[0].time}
+                                      <span className="font-bold">{translate("Arriving at", language)}:</span> {closestTimes[0].time}
                                       <br />
-                                      <span className="font-bold">Next at:</span> {closestTimes[1].time}
+                                      <span className="font-bold">{translate("Next at", language)}:</span> {closestTimes[1].time}
                                     </p>
                                   )}
                                 </div>
@@ -235,7 +236,7 @@ export default function Home() {
                             );
                           } else {
                             return (<li key={stop.stop_id} className="text-black">
-                              No arrival times found
+                              {translate("No arrival times found.", language)}
                             </li>);
                           }
                         })}

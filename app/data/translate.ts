@@ -637,6 +637,61 @@ export const translateMap: Map<string, Map<string, string>> = new Map<
     ["ja", "支払い保留中"],
   ])],
 
+  ["Arriving at", new Map<string, string>([
+    ["en", "Arriving at"],
+    ["fr", "Arrivant à"],
+    ["es", "Llegando a"],
+    ["de", "Ankunft um"],
+    ["it", "In arrivo a"],
+    ["pt", "Chegando em"],
+    ["zh", "到达"],
+    ["ja", "到着予定"],
+  ])],
+
+  ["Next at", new Map<string, string>([
+    ["en", "Next at"],
+    ["fr", "Prochain à"],
+    ["es", "Próximo a"],
+    ["de", "Nächster um"],
+    ["it", "Prossimo a"],
+    ["pt", "Próximo em"],
+    ["zh", "下一个在"],
+    ["ja", "次は"],
+  ])],
+
+  ["No arrival times found.", new Map<string, string>([
+    ["en", "No arrival times found."],
+    ["fr", "Aucun horaire trouvé."],
+    ["es", "No se encontraron horarios de llegada."],
+    ["de", "Keine Ankunftszeiten gefunden."],
+    ["it", "Nessun orario di arrivo trovato."],
+    ["pt", "Nenhum horário de chegada encontrado."],
+    ["zh", "未找到到达时间。"],
+    ["ja", "到着時間が見つかりません。"],
+  ])],
+
+  ["Nearby Routes", new Map<string, string>([
+    ["en", "Nearby Routes"],
+    ["fr", "Itinéraires à proximité"],
+    ["es", "Rutas cercanas"],
+    ["de", "Nahegelegene Routen"],
+    ["it", "Itinerari nelle vicinanze"],
+    ["pt", "Rotas próximas"],
+    ["zh", "附近路线"],
+    ["ja", "近くのルート"],
+  ])],
+
+  ["Loading routes...", new Map<string, string>([
+    ["en", "Loading routes..."],
+    ["fr", "Chargement des itinéraires..."],
+    ["es", "Cargando rutas..."],
+    ["de", "Routen werden geladen..."],
+    ["it", "Caricamento percorsi..."],
+    ["pt", "Carregando rotas..."],
+    ["zh", "加载路线..."],
+    ["ja", "ルートを読み込み中..."],
+  ])],
+
 ]);
 
 export function translate(value: string, language: string) {

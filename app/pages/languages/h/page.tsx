@@ -52,7 +52,7 @@ export default function Home() {
       <Header text="Language" language={language} svg={languageSVG} />
       <HCHomeButton onClick={navToHandiHome}/>
 
-      <h1 className="mt-[20%]">Select Your Language:</h1>
+      <h1 className="mt-[20%]">{translate("Select Your Language:", language)}</h1>
       <div className="bg-white shadow-lg rounded-xl w-[80%] h-fit p-4 mt-5">
         <div className="grid grid-cols-2 gap-3">
           {languages.map((lang) => (
