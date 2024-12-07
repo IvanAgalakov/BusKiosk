@@ -46,7 +46,9 @@ export default () => {
       onChange = {setSelectedDestination}
     />
     {/* Display route select buttons when props are populated*/}
-    <SelectedDestinationCard label = {selectedDestination?.label} routes = {selectedDestination?.routes}/>
+    <div>
+      <SelectedDestinationCard label = {selectedDestination?.label} routes = {selectedDestination?.routes}/>
+    </div>
   </div>
   );
 };
