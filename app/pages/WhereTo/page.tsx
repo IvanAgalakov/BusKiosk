@@ -1,20 +1,26 @@
 "use client";
 import HomeButton from "@/app/components/HomeButton";
 import DestinationDropdown from "@/app/components/DestinationDropdown";
-import SearchBar from "@/app/components/Search";
 import Keyboard from "@/app/components/Keyboard";
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Language, languages } from "@/app/data/languages";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import TimeDisplay from "@/app/components/Time";
 import { useGlobalState } from "@/app/components/StateProvider";
 import { translate } from "@/app/data/translate";
+import { destinations } from "@/app/data/destinations";  // Ensure this is imported
 
 export default function Home() {
   const router = useRouter();
   const { language, setLanguage } = useGlobalState();
+  const [isKeyboardVisible, setIsKeyboardVisible] = useState(false);
+  const [searchText, setSearchText] = useState(""); // State to manage input text
+  const [selectedDestination, setSelectedDestination] = useState(null);
+
+  const keyboardRef = useRef<HTMLDivElement | null>(null); // Ref for the keyboard
+  const searchBarRef = useRef<HTMLDivElement | null>(null); // Ref for the dropdown
 
   const navToHome = () => {
     router.push("/");
@@ -23,6 +29,41 @@ export default function Home() {
   const changeLanguage = (lang: Language) => {
     setLanguage(lang.code);
   };
+
+  const handleFocus = () => {
+    setIsKeyboardVisible(true);
+  };
+
+  // Handle input change in the dropdown (search text)
+  const handleInputChange = (input: string) => {
+    setSearchText(input); // Directly update the input state with the typed text
+  };
+
+  // Handle Enter press, select the destination if it matches the typed input
+  const handleEnterPress = () => {
+    const matchedDestination = destinations.find(dest => 
+      dest.label.toLowerCase() === searchText.toLowerCase()
+    );
+
+    if (matchedDestination) {
+      setSelectedDestination(matchedDestination); // Select the matched destination
+    }
+  };
+
+  // Hide keyboard on click outside of both the dropdown and keyboard
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        searchBarRef.current && !searchBarRef.current.contains(event.target as Node) &&
+        keyboardRef.current && !keyboardRef.current.contains(event.target as Node)
+      ) {
+        setIsKeyboardVisible(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <>
@@ -55,8 +96,27 @@ export default function Home() {
       </div>
       <HomeButton onClick={navToHome} />
       <div className="absolute top-40 w-full p-4">
-        <DestinationDropdown />
+        <div
+          ref={searchBarRef}
+          onFocus={handleFocus}
+          className="relative"
+        >
+          {/* The Dropdown for selecting a destination with real-time search */}
+          <DestinationDropdown
+            searchText={searchText} // Pass search text state to the dropdown
+            onInputChange={handleInputChange} // Pass input change handler to the dropdown
+          />
+        </div>
       </div>
+
+      {isKeyboardVisible && (
+        <div ref={keyboardRef}>
+          <Keyboard
+            onInputChange={handleInputChange}  // Directly send typed input
+            onEnterPress={handleEnterPress} // Trigger the Enter functionality
+          />
+        </div>
+      )}
     </>
   );
 }

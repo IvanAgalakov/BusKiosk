@@ -1,61 +1,76 @@
+import React, { useState } from "react";
 import Key from "@/app/components/Key";
-import { useState } from "react";
 
-//THERE MUST BE A BETTER WAY TO DO THIS (NO DUPLICATES OF KEYLETTER)
 interface KeyboardProps {
-    
-    typedWord?: string;
-    href?: string;
+  onInputChange?: (value: string) => void; // Callback to update the parent state
+  onEnterPress?: () => void;  // Callback for the enter key
+}
+
+export default function Keyboard({ onInputChange, onEnterPress }: KeyboardProps) {
+  const [word, setWord] = useState("");
+
+  // Function to handle adding letters to the input
+  function addLetter(letter: string) {
+    const updatedWord = word + letter;
+    setWord(updatedWord);
+    if (onInputChange) onInputChange(updatedWord);  // Update the parent with typed word
   }
-  
-  export default function Keyboard({ href }: KeyboardProps) {
-    const [word, setWord] = useState("")
-    function addLetter(letter:string) {
-        setWord(word => word + letter)
-    }
-    
-    const [keyboardVisible, setKeyboardVisible] = useState(false)
-    
-    return (
-        <div>
-                <input onClick = {() => setKeyboardVisible(true)} value={word} className = "search-bar w-4/5 h-20 top-44 absolute p-4" placeholder = "Search" >
-                </input>
-            {keyboardVisible &&
-            <div className="grid grid-rows-3 gap-4 place-content-center h-20 md:auto-rows-min">
-                <div>
-                    <Key keyLetter="Q" onClick={() => addLetter("Q")}></Key>
-                    <Key keyLetter="W" onClick={() => addLetter("W")}></Key>
-                    <Key keyLetter="E" onClick={() => addLetter("E")}></Key>
-                    <Key keyLetter="R" onClick={() => addLetter("R")}></Key>
-                    <Key keyLetter="T" onClick={() => addLetter("T")}></Key>
-                    <Key keyLetter="Y" onClick={() => addLetter("Y")}></Key>
-                    <Key keyLetter="U" onClick={() => addLetter("U")}></Key>
-                    <Key keyLetter="I" onClick={() => addLetter("I")}></Key>
-                    <Key keyLetter="O" onClick={() => addLetter("O")}></Key>
-                    <Key keyLetter="P" onClick={() => addLetter("P")}></Key>
-                </div>
-                <div className = "px-3">
-                    <Key keyLetter="A" onClick={() => addLetter("Q")}></Key>
-                    <Key keyLetter="S" onClick={() => addLetter("W")}></Key>
-                    <Key keyLetter="D" onClick={() => addLetter("E")}></Key>
-                    <Key keyLetter="F" onClick={() => addLetter("R")}></Key>
-                    <Key keyLetter="G" onClick={() => addLetter("T")}></Key>
-                    <Key keyLetter="H" onClick={() => addLetter("Y")}></Key>
-                    <Key keyLetter="J" onClick={() => addLetter("U")}></Key>
-                    <Key keyLetter="K" onClick={() => addLetter("I")}></Key>
-                    <Key keyLetter="L" onClick={() => addLetter("O")}></Key>
-                </div>
-                <div className = "px-8">
-                    <Key keyLetter="Z" onClick={() => addLetter("Q")}></Key>
-                    <Key keyLetter="X" onClick={() => addLetter("W")}></Key>
-                    <Key keyLetter="C" onClick={() => addLetter("E")}></Key>
-                    <Key keyLetter="V" onClick={() => addLetter("R")}></Key>
-                    <Key keyLetter="B" onClick={() => addLetter("T")}></Key>
-                    <Key keyLetter="N" onClick={() => addLetter("Y")}></Key>
-                    <Key keyLetter="M" onClick={() => addLetter("U")}></Key>
-                </div>
-            </div>
-            }
+
+  function handleBackspace() {
+    const updatedWord = word.slice(0, -1);
+    setWord(updatedWord);
+    if (onInputChange) onInputChange(updatedWord);
+  }
+
+  function handleEnter() {
+    if (onEnterPress) onEnterPress();  // Trigger the enter press function
+  }
+
+  return (
+    <div className="fixed bottom-0 left-0 w-full bg-gray-200 p-4 z-50">
+      <input
+        value={word}
+        className="search-bar w-4/5 h-10 p-2 mb-4 border border-gray-300 rounded text-black"
+        placeholder="Search"
+        readOnly // Prevent direct typing
+        style={{ backgroundColor: "black", color: "white", fontSize: "16px" }} // Set background to black and text to white
+      />
+      <div className="grid grid-rows-4 gap-2 place-items-center">
+        {/* Number row */}
+        <div className="flex gap-1">
+          {"1234567890".split("").map((number) => (
+            <Key key={number} keyLetter={number} onClick={() => addLetter(number)} />
+          ))}
         </div>
-    );
-  }
+        {/* Letter rows */}
+        <div className="flex gap-1">
+          {"QWERTYUIOP".split("").map((letter) => (
+            <Key key={letter} keyLetter={letter} onClick={() => addLetter(letter)} />
+          ))}
+        </div>
+        <div className="flex gap-1">
+          {"ASDFGHJKL".split("").map((letter) => (
+            <Key key={letter} keyLetter={letter} onClick={() => addLetter(letter)} />
+          ))}
+        </div>
+        <div className="flex gap-1">
+          {"ZXCVBNM".split("").map((letter) => (
+            <Key key={letter} keyLetter={letter} onClick={() => addLetter(letter)} />
+          ))}
+        </div>
+        {/* Action buttons */}
+        <div className="flex gap-1">
+          <button onClick={handleBackspace} className="w-16 h-12 bg-black text-white rounded">
+            <span style={{ fontSize: '18px' }}>Backspace</span>
+          </button>
+          <button onClick={() => addLetter(" ")} className="w-16 h-12 bg-black text-white rounded">
+            <span style={{ fontSize: '18px' }}>Space</span>
+          </button>
+          <button onClick={handleEnter} className="w-16 h-12 bg-black text-white rounded">
+            <span style={{ fontSize: '18px' }}>Enter</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
