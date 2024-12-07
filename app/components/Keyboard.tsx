@@ -23,43 +23,36 @@ export default function Keyboard({ onInputChange, onEnterPress }: KeyboardProps)
   }
 
   function handleEnter() {
-    if (onEnterPress) onEnterPress();  // Trigger the enter press function
+    if (onEnterPress) onEnterPress();  
   }
 
   return (
     <div className="fixed bottom-0 left-0 w-full bg-gray-200 p-4 z-50">
-      <input
-        value={word}
-        className="search-bar w-4/5 h-10 p-2 mb-4 border border-gray-300 rounded text-black"
-        placeholder="Search"
-        readOnly // Prevent direct typing
-        style={{ backgroundColor: "black", color: "white", fontSize: "16px" }} // Set background to black and text to white
-      />
-      <div className="grid grid-rows-4 gap-2 place-items-center">
+      <div className="grid grid-rows-4 gap-4 place-items-center"> {/* Increase gap for more space between rows */}
         {/* Number row */}
-        <div className="flex gap-1">
+        <div className="flex gap-2"> {/* Increase gap between keys */}
           {"1234567890".split("").map((number) => (
             <Key key={number} keyLetter={number} onClick={() => addLetter(number)} />
           ))}
         </div>
         {/* Letter rows */}
-        <div className="flex gap-1">
+        <div className="flex gap-2"> {/* Increase gap between keys */}
           {"QWERTYUIOP".split("").map((letter) => (
             <Key key={letter} keyLetter={letter} onClick={() => addLetter(letter)} />
           ))}
         </div>
-        <div className="flex gap-1">
+        <div className="flex gap-2"> {/* Increase gap between keys */}
           {"ASDFGHJKL".split("").map((letter) => (
             <Key key={letter} keyLetter={letter} onClick={() => addLetter(letter)} />
           ))}
         </div>
-        <div className="flex gap-1">
+        <div className="flex gap-2"> {/* Increase gap between keys */}
           {"ZXCVBNM".split("").map((letter) => (
             <Key key={letter} keyLetter={letter} onClick={() => addLetter(letter)} />
           ))}
         </div>
         {/* Action buttons */}
-        <div className="flex gap-1">
+        <div className="flex gap-3"> {/* Increase gap between action buttons */}
           <button onClick={handleBackspace} className="w-16 h-12 bg-black text-white rounded">
             <span style={{ fontSize: '18px' }}>Backspace</span>
           </button>

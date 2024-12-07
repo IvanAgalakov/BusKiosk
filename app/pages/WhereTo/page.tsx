@@ -2,7 +2,6 @@
 import HomeButton from "@/app/components/HomeButton";
 import DestinationDropdown from "@/app/components/DestinationDropdown";
 import Keyboard from "@/app/components/Keyboard";
-
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Language, languages } from "@/app/data/languages";
@@ -10,14 +9,14 @@ import { useEffect, useState, useRef } from "react";
 import TimeDisplay from "@/app/components/Time";
 import { useGlobalState } from "@/app/components/StateProvider";
 import { translate } from "@/app/data/translate";
-import { destinations } from "@/app/data/destinations";  // Ensure this is imported
+import { destinations, Destinations } from "@/app/data/destinations";  // Ensure this is imported
 
 export default function Home() {
   const router = useRouter();
   const { language, setLanguage } = useGlobalState();
   const [isKeyboardVisible, setIsKeyboardVisible] = useState(false);
   const [searchText, setSearchText] = useState(""); // State to manage input text
-  const [selectedDestination, setSelectedDestination] = useState(null);
+  const [selectedDestination, setSelectedDestination] = useState<Destinations | null>(null); // To store the selected destination
 
   const keyboardRef = useRef<HTMLDivElement | null>(null); // Ref for the keyboard
   const searchBarRef = useRef<HTMLDivElement | null>(null); // Ref for the dropdown
@@ -115,6 +114,20 @@ export default function Home() {
             onInputChange={handleInputChange}  // Directly send typed input
             onEnterPress={handleEnterPress} // Trigger the Enter functionality
           />
+        </div>
+      )}
+
+      {/* Display bus information when a destination is selected */}
+      {selectedDestination && (
+        <div className="selected-destination-info">
+          <h3>Bus Information for {selectedDestination.label}</h3>
+          <ul>
+            {selectedDestination.routes.map((route, index) => (
+              <li key={index}>
+                <p>Route: {route}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </>
