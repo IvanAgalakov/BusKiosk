@@ -26,6 +26,10 @@ export default function Handicap() {
     router.push("pages/PassSelectScreen/h")
   }
 
+  const navToHandiBusRoutes = () => {
+    router.push("pages/BusRoutes/h")
+  }
+
   return (
     <>
       <Image
@@ -64,7 +68,7 @@ export default function Handicap() {
         <button onClick={navToHandiPassSelection} className="bus-button">
             { translate("Purchase Ticket", language) }
           </button>
-          <button className="bus-button">
+          <button className="bus-button" onClick={navToHandiBusRoutes}>
             { translate("Bus Routes", language)}
           </button>
           <button className="bus-button">
