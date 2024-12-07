@@ -23,44 +23,44 @@ export default function Keyboard({ onInputChange, onEnterPress }: KeyboardProps)
   }
 
   function handleEnter() {
-    if (onEnterPress) onEnterPress();  
+    if (onEnterPress) onEnterPress();
   }
 
   return (
     <div className="fixed bottom-0 left-0 w-full bg-gray-200 p-4 z-50">
-      <div className="grid grid-rows-4 gap-4 place-items-center"> {/* Increase gap for more space between rows */}
+      <div className="grid grid-rows-5 gap-4 place-items-center"> {/* Adjusted grid for better spacing */}
         {/* Number row */}
-        <div className="flex gap-2"> {/* Increase gap between keys */}
+        <div className="flex gap-2 justify-center">
           {"1234567890".split("").map((number) => (
             <Key key={number} keyLetter={number} onClick={() => addLetter(number)} />
           ))}
         </div>
         {/* Letter rows */}
-        <div className="flex gap-2"> {/* Increase gap between keys */}
+        <div className="flex gap-2 justify-center">
           {"QWERTYUIOP".split("").map((letter) => (
             <Key key={letter} keyLetter={letter} onClick={() => addLetter(letter)} />
           ))}
         </div>
-        <div className="flex gap-2"> {/* Increase gap between keys */}
+        <div className="flex gap-2 justify-center">
           {"ASDFGHJKL".split("").map((letter) => (
             <Key key={letter} keyLetter={letter} onClick={() => addLetter(letter)} />
           ))}
         </div>
-        <div className="flex gap-2"> {/* Increase gap between keys */}
+        <div className="flex gap-2 justify-center">
           {"ZXCVBNM".split("").map((letter) => (
             <Key key={letter} keyLetter={letter} onClick={() => addLetter(letter)} />
           ))}
         </div>
         {/* Action buttons */}
-        <div className="flex gap-3"> {/* Increase gap between action buttons */}
-          <button onClick={handleBackspace} className="w-16 h-12 bg-black text-white rounded">
-            <span style={{ fontSize: '18px' }}>Backspace</span>
+        <div className="flex gap-4 justify-center">
+          <button onClick={handleBackspace} className="w-20 h-12 bg-black text-white rounded">
+            <span style={{ fontSize: "18px" }}>Back</span>
           </button>
-          <button onClick={() => addLetter(" ")} className="w-16 h-12 bg-black text-white rounded">
-            <span style={{ fontSize: '18px' }}>Space</span>
+          <button onClick={() => addLetter(" ")} className="w-20 h-12 bg-black text-white rounded">
+            <span style={{ fontSize: "18px" }}>Space</span>
           </button>
-          <button onClick={handleEnter} className="w-16 h-12 bg-black text-white rounded">
-            <span style={{ fontSize: '18px' }}>Enter</span>
+          <button onClick={handleEnter} className="w-20 h-12 bg-black text-white rounded">
+            <span style={{ fontSize: "18px" }}>Enter</span>
           </button>
         </div>
       </div>

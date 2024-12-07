@@ -4,62 +4,50 @@ import DestinationDropdown from "@/app/components/DestinationDropdown";
 import Keyboard from "@/app/components/Keyboard";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Language, languages } from "@/app/data/languages";
 import { useEffect, useState, useRef } from "react";
 import TimeDisplay from "@/app/components/Time";
 import { useGlobalState } from "@/app/components/StateProvider";
 import { translate } from "@/app/data/translate";
-import { destinations, Destinations } from "@/app/data/destinations";  // Ensure this is imported
+import { destinations, Destinations } from "@/app/data/destinations";
 
 export default function Home() {
   const router = useRouter();
-  const { language, setLanguage } = useGlobalState();
+  const { language } = useGlobalState();
   const [isKeyboardVisible, setIsKeyboardVisible] = useState(false);
-  const [searchText, setSearchText] = useState(""); // State to manage input text
-  const [selectedDestination, setSelectedDestination] = useState<Destinations | null>(null); // To store the selected destination
+  const [searchText, setSearchText] = useState(""); // Sync keyboard and dropdown input
+  const [selectedDestination, setSelectedDestination] = useState<Destinations | null>(null);
 
-  const keyboardRef = useRef<HTMLDivElement | null>(null); // Ref for the keyboard
-  const searchBarRef = useRef<HTMLDivElement | null>(null); // Ref for the dropdown
+  const keyboardRef = useRef<HTMLDivElement | null>(null);
+  const searchBarRef = useRef<HTMLDivElement | null>(null);
 
   const navToHome = () => {
     router.push("/");
-  };
-
-  const changeLanguage = (lang: Language) => {
-    setLanguage(lang.code);
   };
 
   const handleFocus = () => {
     setIsKeyboardVisible(true);
   };
 
-  // Handle input change in the dropdown (search text)
-  const handleInputChange = (input: string) => {
-    setSearchText(input); // Directly update the input state with the typed text
-  };
-
-  // Handle Enter press, select the destination if it matches the typed input
+  // Handle Enter press on the keyboard
   const handleEnterPress = () => {
-    const matchedDestination = destinations.find(dest => 
-      dest.label.toLowerCase() === searchText.toLowerCase()
+    const matchedDestination = destinations.find(
+      (dest) => dest.label.toLowerCase() === searchText.toLowerCase()
     );
-
-    if (matchedDestination) {
-      setSelectedDestination(matchedDestination); // Select the matched destination
-    }
+    if (matchedDestination) setSelectedDestination(matchedDestination);
   };
 
-  // Hide keyboard on click outside of both the dropdown and keyboard
+  // Hide keyboard when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
-        searchBarRef.current && !searchBarRef.current.contains(event.target as Node) &&
-        keyboardRef.current && !keyboardRef.current.contains(event.target as Node)
+        searchBarRef.current &&
+        !searchBarRef.current.contains(event.target as Node) &&
+        keyboardRef.current &&
+        !keyboardRef.current.contains(event.target as Node)
       ) {
         setIsKeyboardVisible(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
@@ -95,15 +83,10 @@ export default function Home() {
       </div>
       <HomeButton onClick={navToHome} />
       <div className="absolute top-40 w-full p-4">
-        <div
-          ref={searchBarRef}
-          onFocus={handleFocus}
-          className="relative"
-        >
-          {/* The Dropdown for selecting a destination with real-time search */}
+        <div ref={searchBarRef} onFocus={handleFocus} className="relative">
           <DestinationDropdown
-            searchText={searchText} // Pass search text state to the dropdown
-            onInputChange={handleInputChange} // Pass input change handler to the dropdown
+            searchText={searchText} // Sync keyboard input
+            onDestinationSelect={setSelectedDestination} // Handle selection
           />
         </div>
       </div>
@@ -111,23 +94,9 @@ export default function Home() {
       {isKeyboardVisible && (
         <div ref={keyboardRef}>
           <Keyboard
-            onInputChange={handleInputChange}  // Directly send typed input
-            onEnterPress={handleEnterPress} // Trigger the Enter functionality
+            onInputChange={setSearchText} // Update dropdown input
+            onEnterPress={handleEnterPress} // Select destination
           />
-        </div>
-      )}
-
-      {/* Display bus information when a destination is selected */}
-      {selectedDestination && (
-        <div className="selected-destination-info">
-          <h3>Bus Information for {selectedDestination.label}</h3>
-          <ul>
-            {selectedDestination.routes.map((route, index) => (
-              <li key={index}>
-                <p>Route: {route}</p>
-              </li>
-            ))}
-          </ul>
         </div>
       )}
     </>
