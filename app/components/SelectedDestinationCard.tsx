@@ -19,8 +19,8 @@ interface SelectedDestinationCardProps {
     }, [routes])
     return (
         routes!= null &&
-        <div className="p-3 flex flex-row space-x-3 absolute centered">
-            <div className="w-96 bg-white p-5 rounded-lg">
+        <div className="max-width-full p-4 flex flex-row space-x-3 centered">
+            <div className="max-width-full bg-white p-5 rounded-lg">
                 <h1 className = "text-black text-lg">Possible Routes</h1>
                 <hr></hr>
                 {/*Map routes to buttons for user to select their desired route*/}
@@ -28,7 +28,7 @@ interface SelectedDestinationCardProps {
                 {routes?.map((route) => {
                     const splitroute = route[0].split(" ");
                     return(
-                    <button className="flex justify-center items-center active:bg-gray-200 p-3 text-2xl bg-white text-black"  onClick={() => setSelectedRoute(route)} key={route[0]}>
+                    <button className="max-width-full flex justify-center items-center active:bg-gray-200 p-3 text-2xl bg-white text-black"  onClick={() => setSelectedRoute(route)} key={route[0]}>
                     <div className = "flex flex-row">
                         <img src="/bus-icon.svg" alt="Bus Icon" className="mr-2 w-6 h-6" />{splitroute[0]}{splitroute[1]}<img src="/bus-icon.svg" alt="Bus Icon" className="mr-2 w-6 h-6" />{splitroute[2]}     
                     </div>
