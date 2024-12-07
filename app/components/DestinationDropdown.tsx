@@ -35,7 +35,9 @@ export default () => {
       styles={{
         option: (baseStyles, state) => ({
           ...baseStyles,
-          color: 'grey'
+          color: 'grey',
+          position: 'static',
+          width: '50%',
         }),
       }}
       value = {selectedDestination}
