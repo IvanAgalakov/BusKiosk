@@ -19,19 +19,27 @@ interface SelectedDestinationCardProps {
     }, [routes])
     return (
         routes!= null &&
-        <div className="p-10 flex flex-row space-x-3 absolute">
+        <div className="p-3 flex flex-row space-x-3 absolute centered">
             <div className="w-96 bg-white p-5 rounded-lg">
-                <h1 className = "text-black text-3xl">Destination: {label}</h1>
+                <h1 className = "text-black text-lg">Possible Routes</h1>
+                <hr></hr>
                 {/*Map routes to buttons for user to select their desired route*/}
                 <div className="p-3 flex flex-col space-x-3"> 
-                {routes?.map((route) =>
-                <button className="p-3 text-2xl bg-white text-black"  onClick={() => setSelectedRoute(route)} key={route[0]}>
-                    {route[0]}
-                </button>)}
+                {routes?.map((route) => {
+                    const splitroute = route[0].split(" ");
+                    return(
+                    <button className="flex justify-center items-center active:bg-gray-200 p-3 text-2xl bg-white text-black"  onClick={() => setSelectedRoute(route)} key={route[0]}>
+                    <div className = "flex flex-row">
+                        <img src="/bus-icon.svg" alt="Bus Icon" className="mr-2 w-6 h-6" />{splitroute[0]}{splitroute[1]}<img src="/bus-icon.svg" alt="Bus Icon" className="mr-2 w-6 h-6" />{splitroute[2]}     
+                    </div>
+                    </button>)})
+                }
+
+                
                 </div>
 
             </div>
-            <div className="bg-white p-5 rounded-lg text-black">
+            <div className="bg-white p-5 rounded-lg text-black ">
                 {/*Display selected route and map image on button click. Disappears when route buttons do*/}
                 <RouteImageCard route={selectedRoute}/>
             </div>

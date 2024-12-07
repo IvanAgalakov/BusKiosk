@@ -25,7 +25,7 @@ export default () => {
 
 
   return(
-    <div>
+    <div >
     <Select
       isClearable
       components={{ Control: ControlComponent }}
@@ -46,7 +46,10 @@ export default () => {
       onChange = {setSelectedDestination}
     />
     {/* Display route select buttons when props are populated*/}
-    <SelectedDestinationCard label = {selectedDestination?.label} routes = {selectedDestination?.routes}/>
+    
+    <div className="absolute mx-auto w-80 h-90">
+      <SelectedDestinationCard label = {selectedDestination?.label} routes = {selectedDestination?.routes}/>
+    </div>
   </div>
   );
 };
