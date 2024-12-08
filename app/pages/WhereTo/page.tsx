@@ -1,8 +1,7 @@
 "use client";
 import HomeButton from "@/app/components/HomeButton";
 import DestinationDropdown from "@/app/components/DestinationDropdown";
-import SearchBar from "@/app/components/Search";
-import Keyboard from "@/app/components/Keyboard";
+
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -19,6 +18,10 @@ export default function Home() {
   const navToHome = () => {
     router.push("/");
   };
+
+  const navToPassSelection = () => {
+    router.push("/pages/PassSelectScreen")
+  }
 
   const changeLanguage = (lang: Language) => {
     setLanguage(lang.code);
@@ -56,6 +59,13 @@ export default function Home() {
       <HomeButton onClick={navToHome} />
       <div className="absolute top-40 w-full p-4">
         <DestinationDropdown />
+      </div>
+      <button onClick={navToPassSelection} className="bus-button bottom-20 center absolute p-2">
+            { translate("Purchase Ticket", language) }
+      </button>
+      <div>
+      
+      
       </div>
     </>
   );

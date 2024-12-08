@@ -48,6 +48,7 @@ export default () => {
       value = {selectedDestination}
       onChange = {setSelectedDestination}
       menuPlacement='top'
+      placeholder = "⌕ Search..."
     />
 
   </div>

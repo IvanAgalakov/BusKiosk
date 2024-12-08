@@ -11,6 +11,7 @@ import { translate } from "@/app/data/translate";
 import HandicappedDestinationDropdown from "@/app/components/HandicappedDestinationDropdown";
 import HCHomeButton from "@/app/components/HandicappedHomeButton";
 
+
 export default function Home() {
   const router = useRouter();
   const { language, setLanguage } = useGlobalState();
@@ -22,6 +23,11 @@ export default function Home() {
   const changeLanguage = (lang: Language) => {
     setLanguage(lang.code);
   };
+
+  const navToHandiPassSelection = () => {
+    router.push("/pages/PassSelectScreen/h")
+  }
+
 
   return (
     <>
@@ -52,10 +58,16 @@ export default function Home() {
           <p>{translate("Where To?", language)}</p>
         </div>
       </div>
+      <div>
       <HCHomeButton onClick={navToHandiHome}/>
+      <button onClick={navToHandiPassSelection} className="bus-button bottom-2 left-2 absolute p-2">
+            { translate("Purchase Ticket", language) }
+      </button>
+      </div>
       <div className="absolute bottom-20 w-full p-4">
         <HandicappedDestinationDropdown/>
       </div>
+      
     </>
   );
 }

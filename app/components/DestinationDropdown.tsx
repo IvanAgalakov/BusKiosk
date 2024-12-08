@@ -44,6 +44,7 @@ export default () => {
       }}
       value = {selectedDestination}
       onChange = {setSelectedDestination}
+      placeholder = "⌕ Search..."
     />
     
     <div className="mx-auto">
