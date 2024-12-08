@@ -10,6 +10,7 @@ import { useGlobalState } from "@/app/components/StateProvider";
 import { translate } from "@/app/data/translate";
 import HandicappedDestinationDropdown from "@/app/components/HandicappedDestinationDropdown";
 import HCHomeButton from "@/app/components/HandicappedHomeButton";
+import Header from "@/app/components/Header";
 
 
 export default function Home() {
@@ -39,6 +40,8 @@ export default function Home() {
         height={100}
       />
       <TimeDisplay />
+      <Header text="Where To?" language={language}/>
+
       <div className="absolute z-10 top-4 left-20">
       </div>
       <div>
@@ -48,7 +51,7 @@ export default function Home() {
       </button>
       </div>
       <div className="absolute bottom-20 w-full p-4">
-        <HandicappedDestinationDropdown/>
+        <HandicappedDestinationDropdown language={language}/>
       </div>
       
     </>

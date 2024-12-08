@@ -692,12 +692,24 @@ export const translateMap: Map<string, Map<string, string>> = new Map<
     ["ja", "ルートを読み込み中..."],
   ])],
 
+  ["Glenbow Museum", new Map<string, string>([
+    ["en", "Glenbow Museum"],
+  ])],
+  ["Chinook Mall", new Map<string, string>([
+    ["en", "Chinook Mall"],
+  ])],
+  ["⌕ Search...", new Map<string, string>([
+    ["en", "⌕ Search..."],
+  ])],
+
 ]);
 
 export function translate(value: string, language: string) {
   const res = translateMap.get(value)?.get(language);
-  if (res == undefined && value != "") {
-    console.error('\"' + value + '\"' + " is undefined for language " + '\"' + language + '\"')
+  if (res == undefined) {
+    console.error('\"' + value + '\"' + " is undefined for language " + '\"' + language + '\"');
+    return "TRANSLATION ERROR";
+  } else {
+    return res;
   }
-  return res;
 }

@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import TimeDisplay from "@/app/components/Time";
 import { useGlobalState } from "@/app/components/StateProvider";
 import { translate } from "@/app/data/translate";
+import Header from "@/app/components/Header";
 
 export default function Home() {
   const router = useRouter();
@@ -37,12 +38,14 @@ export default function Home() {
         height={100}
       />
       <TimeDisplay />
+      <Header text="Where To?" language={language}/>
+
       <div className="absolute z-10 top-4 left-20">
 
       </div>
       <HomeButton onClick={navToHome} />
       <div className="absolute top-40 w-full p-4">
-        <DestinationDropdown />
+        <DestinationDropdown language={language}/>
       </div>
       <button onClick={navToPassSelection} className="bus-button bottom-20 center absolute p-2">
             { translate("Purchase Ticket", language) }

@@ -1,3 +1,5 @@
+import { translate } from "./translate";
+
 export interface Destinations {
     value: string;
     label: string;
@@ -20,3 +22,10 @@ export interface Destinations {
   ];
 
   //https://digitaltransport4africa.org/creer-une-carte-de-transports/
+
+
+  export function getDestinations(language: string): Destinations[] {
+    return destinations.map((dest: Destinations) => {
+      return {value: dest.value, label: translate(dest.label, language), routes: dest.routes};
+    });
+  }
