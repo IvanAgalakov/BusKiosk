@@ -48,6 +48,6 @@ and change this line at the top:<br/>
 
 To the latitude and longitude of your station. You can do this by right-clicking in google maps on the station in question:<br/>
 ![image](https://github.com/user-attachments/assets/68521a1c-8243-4df3-b3d5-bf844b25a2e4)
-_^ An example of getting coordinates of Dalhousie Station in Calgary_
+<br/>_^ An example of getting coordinates of Dalhousie Station in Calgary_
 
 Of course this only works for locations in Calgary.
