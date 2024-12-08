@@ -2,7 +2,7 @@
 import HomeButton from "@/app/components/HomeButton";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TimeDisplay from "@/app/components/Time";
 import { useGlobalState } from "@/app/components/StateProvider";
 import { translate } from "@/app/data/translate";
@@ -25,6 +25,12 @@ export default function SingleTicketInfo() {
   const handlePayment = () => {
     router.push("/pages/EndScreen/h");
   };
+
+  const [ticket, setTicket] = useState<string>("");
+
+  useEffect(() => {
+    setTicket(selectedPass);
+  });
   
 
   return (
@@ -53,8 +59,8 @@ export default function SingleTicketInfo() {
 
     {/* Details Section */}
   <div className="text-3xl leading-relaxed justify-between flex-col p-5">
-    {adultAmount > 0 && <p>{translate("Adult", language)} {translate("Ticket", language)} x {adultAmount}</p>}
-    {youthAmount > 0 && <p>{translate("Youth", language)} {translate("Ticket", language)} x {youthAmount}</p>}
+    {adultAmount > 0 && <p>{translate("Adult", language)} {translate(ticket, language)} {translate("Ticket", language)} x {adultAmount}</p>}
+    {youthAmount > 0 && <p>{translate("Youth", language)} {translate(ticket, language)} {translate("Ticket", language)} x {youthAmount}</p>}
     <p>  {translate("Total", language)}: ${total} </p>
     <p className="mt-6"> {translate("Please use pinpad or insert cash to complete transaction", language)}</p>
   </div> 

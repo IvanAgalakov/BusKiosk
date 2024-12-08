@@ -742,6 +742,9 @@ export const translateMap: Map<string, Map<string, string>> = new Map<
 export function translate(value: string, language: string) {
   const res = translateMap.get(value)?.get(language);
   if (res == undefined) {
+    if (value == "") {
+      return "";
+    }
     console.error('\"' + value + '\"' + " is undefined for language " + '\"' + language + '\"');
     return "TRANSLATION ERROR";
   } else {

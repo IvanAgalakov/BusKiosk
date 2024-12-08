@@ -63,6 +63,12 @@ export default function SingleTicketInfo() {
     router.push("/pages/PassSelectScreen");
   };
 
+  const [ticket, setTicket] = useState<string>("");
+
+  useEffect(() => {
+    setTicket(selectedPass);
+  });
+
 
   return (
     <>
@@ -94,8 +100,8 @@ export default function SingleTicketInfo() {
     {translate("Receipt", language)}
      </p>
      <hr className="my-4 border-gray-400" />
-    {adultAmount > 0 && <p>{translate("Adult", language)} {translate("Ticket", language)} x {adultAmount}</p>}
-    {youthAmount > 0 && <p>{translate("Youth", language)} {translate("Ticket", language)} x {youthAmount}</p>}
+    {adultAmount > 0 && <p>{translate("Adult", language)} {translate(ticket, language)} {translate("Ticket", language)} x {adultAmount}</p>}
+    {youthAmount > 0 && <p>{translate("Youth", language)} {translate(ticket, language)} {translate("Ticket", language)} x {youthAmount}</p>}
     <p>  {translate("Total", language)}: ${total} </p> 
     
    
