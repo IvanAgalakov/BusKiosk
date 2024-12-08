@@ -20,7 +20,7 @@ interface NumUpDownProps {
             {subtitle}
             </div>
         </div>
-        <div className="flex flex-col ml-20 items-center">
+        <div className="flex flex-col ml-5 items-center">
         <button className="bus-button p-1 rounded-none w-20 h-16 flex flex-row justify-center items-center" onClick={onClickUp}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="size-10">
             <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />

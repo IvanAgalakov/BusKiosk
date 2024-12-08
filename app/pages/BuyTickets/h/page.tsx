@@ -97,16 +97,16 @@ export default function Home() {
         <div className=" mb-3">{translate("Total", language)}: {total}$</div>
         <button disabled={adultAmount == 0 && youthAmount == 0} onClick={onPurchase} className="bus-button">{translate("Purchase", language)}</button>
         <div className=" flex flex-row text-4xl justify-center items-center">
-          <div className="mr-10 flex flex-col justify-center items-center">
-            <div className=" relative">
-              <HomeButton onClick={navToHome} />
-            </div>
-            <div className=" relative mt-20">
-              <BackButton onClick={navBack} />
-            </div>
-          </div>
           <NumUpDown language={language} subtitle="(18+)" title="Adult" onClickDown={adultDown} onClickUp={adultUp} value={adultAmount}/>
           <NumUpDown language={language} subtitle="(13- 17)" title="Youth" onClickDown={youthDown} onClickUp={youthUp} value={youthAmount}/>
+          <div className="ml-10 flex flex-col justify-center items-center">
+            <div className=" relative">
+              <BackButton onClick={navBack} />
+            </div>
+            <div className=" relative mt-20">
+              <HomeButton onClick={navToHome} />
+            </div>
+          </div>
         </div>
       </div>
     </>
