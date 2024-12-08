@@ -74,7 +74,7 @@ export default function SingleTicketInfo() {
       />
       <TimeDisplay />     
   
-    <div className="bg-white text-black shadow-md  w-[50%] h-fit p-10 mt-20 bottom-5 absolute fixed">
+    <div className="bg-white text-black shadow-md  w-[60%] h-fit p-10 mt-20 bottom-5 absolute fixed">
     <button 
     className=" absolute bottom-2 right-4 text-gray-500 hover:text-gray-800 focus:outline-none text-2xl"
     onClick={navToHandiHome} // Replace with your navigation function

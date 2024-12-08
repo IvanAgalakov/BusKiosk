@@ -82,7 +82,7 @@ export default function SingleTicketInfo() {
       <TimeDisplay /> 
       
 
-    <div className="bg-white text-black shadow-md  w-[50%] h-fit p-8 mt-20 relative">
+    <div className="bg-white text-black shadow-md  w-[60%] h-fit p-8 mt-20 relative">
     <button 
     className=" absolute top-2 right-4 text-gray-500 hover:text-gray-800 focus:outline-none text-2xl"
     onClick={navToHome} // Replace with your navigation function
