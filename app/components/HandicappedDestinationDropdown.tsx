@@ -29,7 +29,7 @@ const DestinationSelector: React.FC<DestinationSelectorProps> = ({ language }) =
   return (
     <div>
       <div className="mx-auto">
-        <SelectedDestinationCard label={selectedDestination?.label} routes={selectedDestination?.routes} />
+        <SelectedDestinationCard label={selectedDestination?.label} routes={selectedDestination?.routes} language={language}/>
       </div>
       <Select
         isClearable

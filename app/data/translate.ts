@@ -691,16 +691,51 @@ export const translateMap: Map<string, Map<string, string>> = new Map<
     ["zh", "加载路线..."],
     ["ja", "ルートを読み込み中..."],
   ])],
-
-  ["Glenbow Museum", new Map<string, string>([
-    ["en", "Glenbow Museum"],
-  ])],
-  ["Chinook Mall", new Map<string, string>([
-    ["en", "Chinook Mall"],
-  ])],
-  ["⌕ Search...", new Map<string, string>([
-    ["en", "⌕ Search..."],
-  ])],
+  
+    ["Glenbow Museum", new Map<string, string>([
+      ["en", "Glenbow Museum"],
+      ["fr", "Musée Glenbow (Glenbow Museum)"],
+      ["es", "Museo Glenbow (Glenbow Museum)"],
+      ["de", "Glenbow Museum (Glenbow Museum)"],
+      ["it", "Museo Glenbow (Glenbow Museum)"],
+      ["pt", "Museu Glenbow (Glenbow Museum)"],
+      ["zh", "格伦博博物馆 (Glenbow Museum)"],
+      ["ja", "グレンボウ博物館 (Glenbow Museum)"],
+    ])],
+  
+    ["Chinook Mall", new Map<string, string>([
+      ["en", "Chinook Mall"],
+      ["fr", "Centre commercial Chinook (Chinook Mall)"],
+      ["es", "Centro comercial Chinook (Chinook Mall)"],
+      ["de", "Chinook Mall (Chinook Mall)"],
+      ["it", "Centro commerciale Chinook (Chinook Mall)"],
+      ["pt", "Shopping Chinook (Chinook Mall)"],
+      ["zh", "奇努克购物中心 (Chinook Mall)"],
+      ["ja", "チヌークモール (Chinook Mall)"],
+    ])],
+  
+    ["⌕ Search...", new Map<string, string>([
+      ["en", "⌕ Search..."],
+      ["fr", "⌕ Recherche..."],
+      ["es", "⌕ Buscar..."],
+      ["de", "⌕ Suchen..."],
+      ["it", "⌕ Cerca..."],
+      ["pt", "⌕ Procurar..."],
+      ["zh", "⌕ 搜索..."],
+      ["ja", "⌕ 検索..."],
+    ])],
+  
+    ["Possible Routes", new Map<string, string>([
+      ["en", "Possible Routes"],
+      ["fr", "Itinéraires possibles"],
+      ["es", "Rutas posibles"],
+      ["de", "Mögliche Routen"],
+      ["it", "Percorsi possibili"],
+      ["pt", "Rotas possíveis"],
+      ["zh", "可能的路线"],
+      ["ja", "可能なルート"],
+    ])],
+  
 
 ]);
 
