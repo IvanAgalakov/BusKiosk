@@ -165,7 +165,7 @@ export default function Home() {
       <HandicappedHomeButton onClick={navToHandiHome} />
 
       <button onClick={navToHandiPassSelect} className="bus-button text-3xl absolute bottom-2">
-        Purchase Pass
+        {translate("Purchase Ticket", language)}
       </button>
 
       <div className="container mx-auto max-w-2xl mt-auto mb-[10vh] text-lg">
