@@ -26,6 +26,9 @@ export default () => {
 
   return(
     <div >
+    <div className="mx-auto">
+      <SelectedDestinationCard label = {selectedDestination?.label} routes = {selectedDestination?.routes}/>
+    </div>
     <Select
       isClearable
       components={{ Control: ControlComponent }}
@@ -44,11 +47,9 @@ export default () => {
       }}
       value = {selectedDestination}
       onChange = {setSelectedDestination}
+      menuPlacement='top'
     />
-    
-    <div className="mx-auto">
-      <SelectedDestinationCard label = {selectedDestination?.label} routes = {selectedDestination?.routes}/>
-    </div>
+
   </div>
   );
 };
