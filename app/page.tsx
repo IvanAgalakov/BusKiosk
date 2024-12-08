@@ -30,6 +30,12 @@ export default function Home() {
     router.push("pages/BusRoutes")
   }
 
+  const navToWhereTo = () => {
+    router.push("pages/WhereTo")
+  }
+
+  
+
   return (
     <>
         <Image className=" absolute right-0 top-0" 
@@ -57,12 +63,11 @@ export default function Home() {
         <div className="grid grid-cols-2 gap-4 w-[80%]">
           <button onClick={navToPassSelection} className="bus-button pt-10 pb-10 col-span-2">
             { translate("Purchase Ticket", language) }
-            
           </button>
           <button className="bus-button" onClick={navToBusRoutes}>
             { translate("Bus Routes", language)}
           </button>
-          <button className="bus-button">
+          <button onClick={navToWhereTo} className="bus-button">
             { translate("Where To?", language)}
           </button>
         </div>
