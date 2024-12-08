@@ -145,6 +145,10 @@ export default function Home() {
     router.push("/");
   };
 
+  const navToPassSelect = () => {
+    router.push("/pages/PassSelectScreen");
+  };
+
   return (
     <>
       <Image
@@ -158,6 +162,9 @@ export default function Home() {
 
       <Header text="Bus Routes" language={language} />
       <HomeButton onClick={navToHome} />
+      <button onClick={navToPassSelect} className="bus-button text-3xl absolute top-20">
+        Purchase Pass
+      </button>
 
       <div className="container mx-auto max-w-2xl mt-[15vh] text-lg">
         <div className="bg-white shadow-md rounded-lg overflow-hidden mt-8">

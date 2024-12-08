@@ -146,6 +146,10 @@ export default function Home() {
     router.push("/h");
   };
 
+  const navToHandiPassSelect = () => {
+    router.push("/pages/PassSelectScreen/h");
+  };
+
   return (
     <>
       <Image
@@ -159,6 +163,10 @@ export default function Home() {
 
       <Header text="Bus Routes" language={language} />
       <HandicappedHomeButton onClick={navToHandiHome} />
+
+      <button onClick={navToHandiPassSelect} className="bus-button text-3xl absolute bottom-2">
+        Purchase Pass
+      </button>
 
       <div className="container mx-auto max-w-2xl mt-auto mb-[10vh] text-lg">
         <div className="bg-white shadow-md rounded-lg overflow-hidden mt-8">
